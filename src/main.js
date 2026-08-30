@@ -3,6 +3,7 @@ import { $, $$, el, renderChrome, initCopyButtons } from './layout.js';
 import { t, tpl, getLang, initI18n } from './i18n.js';
 import { initHero3D } from './scene/hero3d.js';
 import { initMockPanel } from './panel.js';
+import { initAgentTerminal } from './agent-terminal.js';
 import { DYLIB_DOWNLOAD, CAPABILITIES } from './data.js';
 
 /* ---------------- nav scroll state ---------------- */
@@ -81,6 +82,7 @@ function boot() {
   initNav();
   initCopyButtons();
   initDownload();
+  initAgentTerminal();
   initMockPanel();
   initHomeCaps();
   initReveal();

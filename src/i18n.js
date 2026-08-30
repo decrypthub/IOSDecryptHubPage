@@ -23,6 +23,10 @@ export const DICT = {
     'hero.idh.title': '安装 idh',
     'hero.scroll': '向下滚动',
 
+    'home.agent.kicker': 'AGENT · MCP',
+    'home.agent.title': '像这样，把捕获交给 AI',
+    'home.agent.lead': '注入后在 App 里走一遍流程。Claude Code 通过 idh 网关调用设备上的 MCP：先对齐流量、签名和加密调用点，再写出可复用的脚本。',
+
     'home.panel.kicker': '实时面板',
     'home.panel.title': '插件里的运行时控制台，直接在这里操作',
     'home.panel.lead': '界面与插件内置页面保持一致。切换页签、筛选与搜索测试 IPA 产生的日志，点任意记录查看 Key、IV、输入输出、HexDump 与调用栈。',
@@ -176,6 +180,10 @@ export const DICT = {
     'hero.idh.meta': 'macOS / Linux · Python 3.10+',
     'hero.idh.title': 'Install idh',
     'hero.scroll': 'Scroll down',
+
+    'home.agent.kicker': 'AGENT · MCP',
+    'home.agent.title': 'Hand the capture to an AI agent',
+    'home.agent.lead': 'Inject, tap through a flow in the app. Claude Code calls on-device MCP through the idh gateway: align traffic, signatures and encrypt call sites, then emit a reusable script.',
 
     'home.panel.kicker': 'Live Panel',
     'home.panel.title': 'The plugin runtime console, right here',
