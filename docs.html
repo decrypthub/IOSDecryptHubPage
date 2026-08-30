@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="IOSDecryptHub 使用文档 — 下载与注入、TrollFools / 插件源安装方式、能力全景、算法覆盖与 MCP 工具说明。"
+      content="IOSDecryptHub 使用文档：选择注入方式，连接运行时面板，并使用 idh 与 MCP 进行授权安全分析。"
     />
     <meta name="theme-color" content="#050506" />
     <title>文档 · IOSDecryptHub</title>
@@ -21,96 +21,129 @@
     <div class="grain" aria-hidden="true"></div>
     <div class="scanline" aria-hidden="true"></div>
 
-    <!-- ================= NAV ================= -->
     <header class="nav nav--solid" id="nav"></header>
 
     <main id="top" class="sub">
       <div class="wrap">
         <header class="sub__head reveal">
           <span class="sub__kicker" data-i18n="docs.kicker">DOCS · 文档</span>
-          <h1 data-i18n="docs.title">使用文档</h1>
-          <p data-i18n="docs.subtitle">从注入到分析：安装方式、能力全景、算法覆盖与 MCP 工具说明。</p>
+          <h1 data-i18n="docs.title">从注入到证据</h1>
+          <p data-i18n="docs.subtitle">面向公开版本的使用与能力参考：选择注入方式，连接设备端面板，再用 idh / MCP 读取运行时事实。</p>
         </header>
 
         <div class="docs">
           <aside class="toc reveal" aria-label="文档目录">
-            <a href="#start" class="active" data-i18n="docs.toc.start">快速开始</a>
-            <a href="#install" data-i18n="docs.toc.install">安装与注入</a>
-            <a href="#capabilities" data-i18n="docs.toc.caps">能力全景</a>
-            <a href="#algorithms" data-i18n="docs.toc.algo">算法覆盖</a>
+            <a href="#start" class="active" data-i18n="docs.toc.start">开始前</a>
+            <a href="#install" data-i18n="docs.toc.install">安装与连接</a>
+            <a href="#workflow" data-i18n="docs.toc.workflow">分析流程</a>
             <a href="#mcp" data-i18n="docs.toc.mcp">MCP 工具</a>
-            <a href="#security" data-i18n="docs.toc.security">安全与合规</a>
+            <a href="#limits" data-i18n="docs.toc.limits">边界与限制</a>
+            <a href="#security" data-i18n="docs.toc.security">安全使用</a>
           </aside>
 
           <div class="docs__body">
-            <!-- ============ 快速开始 ============ -->
             <section id="start">
-              <h2 data-i18n="docs.start.h2">快速开始</h2>
+              <h2 data-i18n="docs.start.h2">开始前</h2>
+              <p data-i18n="docs.start.lead">IOSDecryptHub 运行在目标 App 进程内。它记录调用发生时的参数、结果和调用栈，不是代理服务器，也不会替你获得目标 App 的授权。</p>
               <ol class="start__steps">
                 <li>
-                  <b data-i18n="docs.start.step1t">下载 dylib</b>
-                  <p data-i18n="docs.start.step1d">从官网首页或 GitHub Releases 下载 decrypt_helper.dylib。</p>
+                  <b data-i18n="docs.start.step1t">确认分析范围</b>
+                  <p data-i18n="docs.start.step1d">只对自有 App 或已获授权的测试目标操作，并准备一台支持 TrollStore 或越狱注入的设备。</p>
                 </li>
                 <li>
-                  <b data-i18n="docs.start.step2t">注入目标 App</b>
-                  <p data-i18n="docs.start.step2d">用 TrollFools 直接注入，或安装越狱插件后选择目标 App。</p>
+                  <b data-i18n="docs.start.step2t">选择注入路线</b>
+                  <p data-i18n="docs.start.step2d">TrollStore 路线使用 dylib 或管理器 App；越狱路线使用插件源中的 rootless / roothide 包。</p>
                 </li>
                 <li>
-                  <b data-i18n="docs.start.step3t">打开面板</b>
-                  <p data-i18n="docs.start.step3d">启动目标 App，在同一局域网的浏览器访问 http://&lt;设备 IP&gt;:8088。</p>
+                  <b data-i18n="docs.start.step3t">启动并连接面板</b>
+                  <p data-i18n="docs.start.step3d">启动目标 App 后，在可信局域网的浏览器中打开设备端显示的地址，默认端口从 8088 开始。</p>
+                </li>
+                <li>
+                  <b data-i18n="docs.start.step4t">决定是否接入 idh</b>
+                  <p data-i18n="docs.start.step4d">只看面板可以停在这里；需要命令行、事件导出或 AI 客户端时，再安装 PC 端 idh 网关。</p>
                 </li>
               </ol>
-              <p class="note" data-i18n="docs.start.note">仅限自有 App 或已获授权的安全测试与研究。</p>
+              <p class="note" data-i18n="docs.start.note">公开版本不做设备自动发现：请使用设备端显示的 IP 和端口手动连接。</p>
             </section>
 
-            <!-- ============ 安装与注入 ============ -->
             <section id="install">
-              <h2 data-i18n="docs.install.h2">安装与注入</h2>
+              <h2 data-i18n="docs.install.h2">安装与连接</h2>
+              <p data-i18n="docs.install.lead">三条注入路径共享同一份核心引擎。差别只在于谁负责把 dylib 放进目标 App 进程。</p>
 
-              <h3 data-i18n="docs.install.tf.h3">方式一 · TrollFools 巨魔注入（推荐）</h3>
-              <p data-i18n="docs.install.tf.p1">适用于已通过 TrollStore 安装巨魔注入器的设备：</p>
-              <ol class="prose-list">
-                <li data-i18n="docs.install.tf.s1">在巨魔注入器中选择目标 App。</li>
-                <li data-i18n="docs.install.tf.s2">添加 decrypt_helper.dylib 并执行注入。</li>
-                <li data-i18n="docs.install.tf.s3">启动目标 App。</li>
-                <li data-i18n="docs.install.tf.s4">在同一局域网的浏览器访问 http://&lt;设备 IP&gt;:8088。</li>
-              </ol>
-              <p data-i18n="docs.install.tf.p2">不同注入器的界面可能略有差异，核心操作都是将 dylib 注入目标 App 后重新启动 App。</p>
+              <div class="install-grid">
+                <article class="install-path">
+                  <span class="install-path__index">01 · TROLLSTORE</span>
+                  <h3 data-i18n="docs.install.tf.h3">TrollStore 注入器（推荐）</h3>
+                  <p data-i18n="docs.install.tf.p1">适用于已经安装 TrollStore 和兼容注入器的设备：</p>
+                  <ol class="prose-list">
+                    <li data-i18n="docs.install.tf.s1">从首页或 GitHub Releases 下载当前版本 dylib。</li>
+                    <li data-i18n="docs.install.tf.s2">在注入器中选择授权目标 App，添加 dylib 并执行注入。</li>
+                    <li data-i18n="docs.install.tf.s3">完全退出并重新启动目标 App。</li>
+                    <li data-i18n="docs.install.tf.s4">从悬浮窗或日志输出确认面板地址，再用浏览器打开。</li>
+                  </ol>
+                </article>
 
-              <h3 data-i18n="docs.install.src.h3">方式二 · 越狱插件源</h3>
-              <p data-i18n="docs.install.src.p1">在包管理器（Sileo / Zebra）中添加插件源 https://ios.decrypthub.com/，安装 com.iosdecrypthub，然后在「设置 → IOSDecryptHub」中选择要注入的 App。支持 rootless / roothide 双端。</p>
+                <article class="install-path">
+                  <span class="install-path__index">02 · JAILBREAK</span>
+                  <h3 data-i18n="docs.install.jb.h3">越狱插件源</h3>
+                  <p data-i18n="docs.install.jb.p1">适用于 rootless / roothide 环境。两种包对应不同的设备架构，不能混装：</p>
+                  <ol class="prose-list">
+                    <li data-i18n="docs.install.jb.s1">在 Sileo、Zebra 等包管理器中添加插件源。</li>
+                    <li data-i18n="docs.install.jb.s2">安装 <code>com.iosdecrypthub</code>，选择与设备环境匹配的包。</li>
+                    <li data-i18n="docs.install.jb.s3">在“设置 → IOSDecryptHub”中选择授权目标 App。</li>
+                    <li data-i18n="docs.install.jb.s4">重启目标 App，并使用设备端显示的地址连接。</li>
+                  </ol>
+                  <code class="install-path__repo">https://ios.decrypthub.com/</code>
+                </article>
+              </div>
 
-              <h3 data-i18n="docs.install.idh.h3">PC 端 · idh 网关</h3>
-              <p data-i18n="docs.install.idh.p1">插件通过 UDP 信标广播自身地址。安装 idh 后无需手动输入设备 IP：</p>
-              <pre class="doc-code">pip install ios-decrypt-hub
-idh connect &lt;设备 IP&gt;:8088
+              <div class="docs__subsection">
+                <h3 data-i18n="docs.install.idh.h3">PC 端 · idh 网关</h3>
+                <p data-i18n="docs.install.idh.p1">idh 不负责发现设备。先从设备面板、悬浮窗或诊断信息取得 IP 和实际端口，再保存连接：</p>
+                <pre class="doc-code">python3 -m pip install ios-decrypt-hub
+idh connect &lt;device-ip&gt;:&lt;port&gt;
+idh devices
 idh mcp</pre>
-              <p data-i18n="docs.install.idh.p2">idh mcp 把设备上的 HTTP MCP 转换为本机 stdio MCP，可直接作为 Codex、Claude 等 AI 客户端的固定 MCP 配置。</p>
+                <p data-i18n="docs.install.idh.p2"><code>idh mcp</code> 将设备端 Streamable HTTP MCP 桥接为本机 stdio MCP，可配置给 Codex、Claude 等 AI 客户端。只有一个在线目标时可以省略 target_id。</p>
+              </div>
             </section>
 
-            <!-- ============ 能力全景 ============ -->
-            <section id="capabilities">
-              <h2 data-i18n="docs.caps.h2">能力全景</h2>
-              <p data-i18n="docs.caps.lead">同一条运行时链路，六种观察视角。拦截的是 CommonCrypto、Security.framework、OpenSSL EVP 三套系统库，以及沙盒文件与动态库加载。同名接口在 macOS 与 iOS 上通用。</p>
-              <div class="caps caps--docs" id="caps-grid"></div>
+            <section id="workflow">
+              <h2 data-i18n="docs.workflow.h2">分析流程</h2>
+              <p data-i18n="docs.workflow.lead">建议先观察，再缩小范围，最后导出证据。这样可以把高频系统噪声与真正的业务调用分开。</p>
+              <div class="workflow">
+                <article class="workflow__item">
+                  <span>01</span>
+                  <h3 data-i18n="docs.workflow.capture.h3">先看事件流</h3>
+                  <p data-i18n="docs.workflow.capture.p">在面板中按分类、关键词和输入大小筛选加解密、文件、网络与 Keychain 事件。</p>
+                </article>
+                <article class="workflow__item">
+                  <span>02</span>
+                  <h3 data-i18n="docs.workflow.trace.h3">回到调用点</h3>
+                  <p data-i18n="docs.workflow.trace.p">打开单条事件查看输入输出、算法元数据和应用层调用栈，再用 symbolicate 或反汇编确认上下文。</p>
+                </article>
+                <article class="workflow__item">
+                  <span>03</span>
+                  <h3 data-i18n="docs.workflow.correlate.h3">关联因果链</h3>
+                  <p data-i18n="docs.workflow.correlate.p">以网络请求的构建时刻为锚点，关联同一时间窗内的摘要、签名、加密和 Keychain 操作。</p>
+                </article>
+                <article class="workflow__item">
+                  <span>04</span>
+                  <h3 data-i18n="docs.workflow.export.h3">保存最小证据</h3>
+                  <p data-i18n="docs.workflow.export.p">只导出完成问题所需的事件和诊断信息，敏感字段应在本地加密保存，不要直接分享原始日志。</p>
+                </article>
+              </div>
             </section>
 
-            <!-- ============ 算法覆盖 ============ -->
-            <section id="algorithms">
-              <h2 data-i18n="docs.algo.h2">算法覆盖</h2>
-              <p data-i18n="docs.algo.lead">摘要、HMAC、对称、非对称、KDF 全线覆盖；流式 Init / Update / Final 会把分片喂入的数据拼回完整明文。目标若链接 libcrypto，OpenSSL EVP 对称也一并接管。</p>
-              <div class="algo" id="algo-grid"></div>
-            </section>
-
-            <!-- ============ MCP ============ -->
             <section id="mcp">
               <h2 data-i18n="docs.mcp.h2">MCP 工具</h2>
-              <p data-i18n="docs.mcp.lead">注入的 dylib 内置一个 MCP (Model Context Protocol) 服务器，复用 8088 端口。36 个工具覆盖 Capstone 分析、内存与符号、运行时事件、沙盒文件、砸壳、捕获控制和配置。选一个工具查看调用方式。</p>
+              <p data-i18n="docs.mcp.lead">设备端 MCP 复用 HTTP 服务端口 <code>POST /api/mcp</code>，当前公开版本提供 44 个工具，覆盖反汇编、镜像与符号、运行时事件、沙盒文件、脱壳、动态观察和配置。</p>
+              <div class="docs__callout" data-i18n="docs.mcp.note">先调用 get_capabilities 和 tools/list 获取当前构建的真实能力。工具可能受变体、目标镜像和设备环境影响，网页示例不是运行时结果。</div>
               <div class="mcp">
                 <ul class="mcp__list" id="mcp-list" role="tablist" aria-label="MCP 工具"></ul>
                 <div class="mcp__stage">
                   <div class="mcp__panelhead">
-                    <span class="mcp__name" id="mcp-name">disassemble</span>
+                    <span class="mcp__name" id="mcp-name">get_capabilities</span>
                     <span class="mcp__req" id="mcp-req"></span>
                   </div>
                   <p class="mcp__desc" id="mcp-desc"></p>
@@ -128,22 +161,32 @@ idh mcp</pre>
               </div>
             </section>
 
-            <!-- ============ 安全与合规 ============ -->
-            <section id="security">
-              <h2 data-i18n="docs.security.h2">安全与合规</h2>
+            <section id="limits">
+              <h2 data-i18n="docs.limits.h2">边界与限制</h2>
+              <p data-i18n="docs.limits.lead">运行时观察能力有明确边界。把“没有看到”当成线索，而不是把它当成“绝对不存在”。</p>
               <ul class="prose-list">
-                <li data-i18n="docs.security.l1">Web 与 MCP 服务默认监听 0.0.0.0:8088，没有身份认证，请仅在可信局域网中使用，不要暴露到公网。</li>
-                <li data-i18n="docs.security.l2">注入能力受设备环境及目标 App 保护机制影响。</li>
-                <li data-i18n="docs.security.l3">请勿将捕获到的 Key、口令、明文或其他敏感数据提交到公开 Issue。</li>
+                <li data-i18n="docs.limits.l1">Hook 只覆盖实际可改写的导入符号和 Objective-C 方法；静态链接、私有调用路径或未触发的 API 可能不会出现事件。</li>
+                <li data-i18n="docs.limits.l2">脱壳只处理当前进程已加载的 App Bundle Mach-O；<code>PlugIns/*.appex</code> 等独立进程需要单独注入。</li>
+                <li data-i18n="docs.limits.l3">MCP 的内存读取和 xref 扫描有大小、可读页和分页限制；响应中的 coverage / confidence 字段必须一并判断。</li>
+                <li data-i18n="docs.limits.l4">网络层是进程内 best-effort 观察：系统 TLS、未走 NSURLSession 的实现或 App 自带库可能需要不同的观察面。</li>
               </ul>
-              <p data-i18n="docs.security.p">遇到问题可在 GitHub Issues 反馈。</p>
+            </section>
+
+            <section id="security">
+              <h2 data-i18n="docs.security.h2">安全使用</h2>
+              <ul class="prose-list">
+                <li data-i18n="docs.security.l1">Web 与 MCP 服务默认从 8088 开始监听，服务没有身份认证，并可能在端口占用时选择 8088-8108 的空闲端口；仅限可信网络使用，绝不要暴露到公网。</li>
+                <li data-i18n="docs.security.l2">事件、导出文件和 MCP 响应可能包含 Key、IV、明文、Token、路径及请求内容，请按敏感材料保存和传输。</li>
+                <li data-i18n="docs.security.l3">仅分析自有 App 或已获授权目标。注入、重签和脱壳能力会受到设备环境、签名和目标 App 保护机制影响。</li>
+                <li data-i18n="docs.security.l4">提交 Issue 或公开复现步骤前，先删除凭据、用户数据、设备标识和完整原始日志。</li>
+              </ul>
+              <p data-i18n="docs.security.p">遇到问题可在 GitHub Issues 反馈，并附上脱敏后的版本、设备环境和诊断摘要。</p>
             </section>
           </div>
         </div>
       </div>
     </main>
 
-    <!-- ================= FOOTER ================= -->
     <footer class="foot" id="foot"></footer>
 
     <script type="module" src="/src/docs.js"></script>

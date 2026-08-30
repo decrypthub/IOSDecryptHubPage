@@ -83,7 +83,7 @@ export function renderChrome(active) {
             <a href="/docs.html">${t('nav.docs')}</a>
             <a href="/news.html">${t('nav.news')}</a>
             <a href="https://github.com/taisuii/IOSDecryptHub">GitHub</a>
-            <a href="https://github.com/taisuii/ios-decrypt-helper/releases">Releases</a>
+            <a href="https://github.com/taisuii/IOSDecryptHub/releases">Releases</a>
           </div>
         </div>
         <div class="wrap foot__base">
