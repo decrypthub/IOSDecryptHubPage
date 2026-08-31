@@ -42,6 +42,31 @@ npm run dev
 npm run build   # 产物在 dist/
 ```
 
+## 托管（Cloudflare Workers Builds）
+
+本站是 Vite 多页静态站，用 Workers Static Assets 托管。Cloudflare 连接本仓库后，推送 `main` 即自动构建部署。仓库可以保持 private，网站仍然公开。
+
+Dashboard 构建配置应对齐：
+
+| 项 | 值 |
+|---|---|
+| Build command | `npm run build` |
+| Deploy command | `npx wrangler deploy` |
+| Root directory | `/`（本仓库根目录） |
+| Production branch | `main` |
+
+`wrangler.jsonc` 里的 `name` 必须和 Dashboard 里的 Worker 名称一致（当前是 `ios-decrypthub`）。不一致时改 Dashboard 名称，或改配置文件里的 `name`。
+
+私有仓库需要在 GitHub → Settings → Applications → **Cloudflare Workers and Pages** 里把本仓库授权给 Cloudflare。
+
+自定义域名：Worker → Settings → Domains & Routes → Add → Custom Domain，填 `ios.decrypthub.com`（域名必须已经接入 Cloudflare）。
+
+本地预览 Workers 运行时：
+
+```bash
+npm run preview:workers
+```
+
 ## 发布
 
 新版本发布时，先同步 dylib 到官网静态目录并更新首页下载元数据：
@@ -52,7 +77,7 @@ npm run build   # 产物在 dist/
 ```
 
 脚本会把 dylib 复制到 `public/dylibs/`，并刷新 `src/data.js` 里的版本、大小与 SHA-256。
-之后执行 `npm run build` 并推送 `main`，GitHub Actions 会自动部署。
+之后推送 `main`，Cloudflare Workers Builds 会执行 `npm run build` 再 `npx wrangler deploy`。
 
 ## 技术栈
 

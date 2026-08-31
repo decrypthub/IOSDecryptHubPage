@@ -1,0 +1,23 @@
+# Vite 带 hash 的静态资源可长期缓存
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cydia / Sileo 源索引（无扩展名，显式指定 MIME）
+/Packages
+  Content-Type: text/plain; charset=utf-8
+
+/Packages.gz
+  Content-Type: application/gzip
+
+/Packages.bz2
+  Content-Type: application/x-bzip2
+
+/Release
+  Content-Type: text/plain; charset=utf-8
+
+# 二进制下载
+/dylibs/*
+  Content-Type: application/octet-stream
+
+/debs/*
+  Content-Type: application/vnd.debian.binary-package
