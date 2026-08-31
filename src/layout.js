@@ -29,6 +29,9 @@ const BRAND_SVG = `<svg viewBox="0 0 281 251" width="20" height="18" fill="curre
   </g>
 </svg>`;
 
+const ICON_TELEGRAM = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 4 2.5 12.1l6.2 2.1L17 8.2l-6.8 7.6 8.6 2.7L21 4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`;
+const ICON_X = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.4 3h3.3L13.9 11 22 21h-6.1l-4.8-6.3L5.5 21H2.2l7.2-8.2L2 3h6.2l4.3 5.7L17.4 3Zm-1.1 16.2h1.8L7.8 4.7H5.8l10.5 14.5Z"/></svg>`;
+
 /**
  * Render shared nav + footer into #nav / #foot.
  * @param {'home'|'docs'|'news'} active
@@ -75,15 +78,50 @@ export function renderChrome(active) {
     const renderFoot = () => {
       foot.innerHTML = `
         <div class="wrap foot__grid">
-          <div class="foot__brand">
-            <span class="nav__word">IOSDecrypt<b>Hub</b></span>
-            <p>${t('foot.desc')}</p>
+          <div class="foot__left">
+            <div class="foot__brand">
+              <span class="nav__word">IOSDecrypt<b>Hub</b></span>
+              <p>${t('foot.desc')}</p>
+            </div>
+            <div class="foot__links">
+              <a href="/docs.html">${t('nav.docs')}</a>
+              <a href="/news.html">${t('nav.news')}</a>
+              <a href="https://github.com/taisuii/IOSDecryptHub">GitHub</a>
+              <a href="https://github.com/taisuii/IOSDecryptHub/releases">Releases</a>
+            </div>
           </div>
-          <div class="foot__links">
-            <a href="/docs.html">${t('nav.docs')}</a>
-            <a href="/news.html">${t('nav.news')}</a>
-            <a href="https://github.com/taisuii/IOSDecryptHub">GitHub</a>
-            <a href="https://github.com/taisuii/IOSDecryptHub/releases">Releases</a>
+          <div class="foot__social">
+            <button type="button" class="foot__channel foot__channel--oa" data-copy="DecryptHub" title="${t('foot.wechat')}">
+              <span class="foot__follow-qr">
+                <img
+                  src="/wechat-qr.png"
+                  alt="${t('foot.wechat')}"
+                  width="360"
+                  height="360"
+                  decoding="async"
+                  loading="lazy"
+                />
+                <span class="foot__follow-mark" aria-hidden="true">${BRAND_SVG}</span>
+              </span>
+              <span class="foot__channel-meta">
+                <span class="foot__channel-net">${t('foot.wechat.net')}</span>
+                <span class="foot__channel-name">DecryptHub</span>
+              </span>
+            </button>
+            <a class="foot__channel" href="https://t.me/decrypthubteam" target="_blank" rel="noopener noreferrer">
+              <span class="foot__channel-ico">${ICON_TELEGRAM}</span>
+              <span class="foot__channel-meta">
+                <span class="foot__channel-net">Telegram</span>
+                <span class="foot__channel-name">@decrypthubteam</span>
+              </span>
+            </a>
+            <a class="foot__channel" href="https://x.com/decrypthub_" target="_blank" rel="noopener noreferrer">
+              <span class="foot__channel-ico">${ICON_X}</span>
+              <span class="foot__channel-meta">
+                <span class="foot__channel-net">X</span>
+                <span class="foot__channel-name">@decrypthub_</span>
+              </span>
+            </a>
           </div>
         </div>
         <div class="wrap foot__base">
@@ -91,8 +129,46 @@ export function renderChrome(active) {
           <span>${t('foot.built')}</span>
         </div>`;
     };
+    const bindFollowCopy = () => {
+      $$('.foot__channel[data-copy]', foot).forEach((button) => {
+        button.addEventListener('click', async () => {
+          const name = button.dataset.copy;
+          const net = $('.foot__channel-net', button);
+          const original = net?.textContent;
+          const copyText = async (text) => {
+            if (navigator.clipboard?.writeText) {
+              await navigator.clipboard.writeText(text);
+              return;
+            }
+            const input = el('textarea');
+            input.value = text;
+            input.setAttribute('readonly', '');
+            input.style.position = 'fixed';
+            input.style.opacity = '0';
+            document.body.appendChild(input);
+            input.select();
+            const copied = document.execCommand('copy');
+            input.remove();
+            if (!copied) throw new Error('copy failed');
+          };
+          try {
+            await copyText(name);
+            button.classList.add('copied');
+            if (net) net.textContent = t('foot.copied');
+          } catch { /* keep original label */ }
+          setTimeout(() => {
+            button.classList.remove('copied');
+            if (net && original) net.textContent = original;
+          }, 1400);
+        });
+      });
+    };
     renderFoot();
-    document.addEventListener('idh:langchange', renderFoot);
+    bindFollowCopy();
+    document.addEventListener('idh:langchange', () => {
+      renderFoot();
+      bindFollowCopy();
+    });
   }
 
   initI18n();
