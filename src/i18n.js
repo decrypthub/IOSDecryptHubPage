@@ -29,7 +29,7 @@ export const DICT = {
 
     'home.panel.kicker': '实时面板',
     'home.panel.title': '插件里的运行时控制台，直接在这里操作',
-    'home.panel.lead': '界面与插件内置页面保持一致。切换页签、筛选与搜索测试 IPA 产生的日志，点任意记录查看 Key、IV、输入输出、HexDump 与调用栈。',
+    'home.panel.lead': '界面与插件内置页面保持一致。切换页签、搜索测试 IPA 产生的日志；加解密页可按分类和输入大小筛选。点任意记录查看 Key、IV、输入输出、HexDump 与调用栈。',
 
     'home.caps.kicker': 'CAPABILITIES · 能力',
     'home.caps.title': '一条运行时链路，六个观察面',
@@ -74,7 +74,7 @@ export const DICT = {
     'docs.workflow.h2': '分析流程',
     'docs.workflow.lead': '建议先观察，再缩小范围，最后导出证据。这样可以把高频系统噪声与真正的业务调用分开。',
     'docs.workflow.capture.h3': '先看事件流',
-    'docs.workflow.capture.p': '在面板中按分类、关键词和输入大小筛选加解密、文件、网络与 Keychain 事件。',
+    'docs.workflow.capture.p': '各日志页支持关键词搜索；加解密页还可按分类和输入大小筛选。',
     'docs.workflow.trace.h3': '回到调用点',
     'docs.workflow.trace.p': '打开单条事件查看输入输出、算法元数据和应用层调用栈，再用 symbolicate 或反汇编确认上下文。',
     'docs.workflow.correlate.h3': '关联因果链',
@@ -102,8 +102,8 @@ export const DICT = {
     'news.back': '← 返回文章列表',
 
     'foot.desc': '基于 fishhook 的 iOS App 运行时加解密审计与逆向分析平台。',
-    'foot.copy': '© 2026 IOSDecryptHub · 仅供授权安全测试与研究',
-    'foot.built': 'Built with Vite · Three.js',
+    'foot.copy': '© 2026 taisuii · IOSDecryptHub · 仅供授权安全测试与研究',
+    'foot.built': '由 <a href="https://github.com/taisuii" target="_blank" rel="noopener noreferrer">taisuii</a> 构建 · Vite · Three.js',
     'foot.wechat': '微信搜一搜 DecryptHub',
     'foot.wechat.net': '微信公众号',
     'foot.copied': '已复制',
@@ -183,7 +183,7 @@ export const DICT = {
 
     'home.panel.kicker': 'Live Panel',
     'home.panel.title': 'The plugin runtime console, right here',
-    'home.panel.lead': 'Same UI as the plugin\u2019s built-in page. Switch tabs, filter and search logs, click any record to inspect Key, IV, input/output, HexDump and call stack.',
+    'home.panel.lead': 'Same UI as the plugin\u2019s built-in page. Switch tabs and search logs; crypto also filters by category and input size. Click any record to inspect Key, IV, input/output, HexDump and call stack.',
 
     'home.caps.kicker': 'CAPABILITIES',
     'home.caps.title': 'One runtime link, six observation surfaces',
@@ -228,7 +228,7 @@ export const DICT = {
     'docs.workflow.h2': 'Analysis workflow',
     'docs.workflow.lead': 'Observe first, narrow the scope second, and export evidence last. This keeps high-volume system noise separate from business calls.',
     'docs.workflow.capture.h3': 'Start with the event stream',
-    'docs.workflow.capture.p': 'Filter crypto, file, network and Keychain events in the panel by category, keyword and input size.',
+    'docs.workflow.capture.p': 'Every log tab supports keyword search; the crypto tab also filters by category and input size.',
     'docs.workflow.trace.h3': 'Return to the call site',
     'docs.workflow.trace.p': 'Open an event to inspect input/output, algorithm metadata and the app call stack, then use symbolicate or disassembly to confirm context.',
     'docs.workflow.correlate.h3': 'Build the causal chain',
@@ -256,8 +256,8 @@ export const DICT = {
     'news.back': '← Back to list',
 
     'foot.desc': 'fishhook-based runtime crypto audit & reverse engineering platform for iOS apps.',
-    'foot.copy': '© 2026 IOSDecryptHub · For authorized security testing & research only',
-    'foot.built': 'Built with Vite · Three.js',
+    'foot.copy': '© 2026 taisuii · IOSDecryptHub · For authorized security testing & research only',
+    'foot.built': 'Created by <a href="https://github.com/taisuii" target="_blank" rel="noopener noreferrer">taisuii</a> · Vite · Three.js',
     'foot.wechat': 'Search WeChat for DecryptHub',
     'foot.wechat.net': 'WeChat Official',
     'foot.copied': 'Copied',

@@ -132,10 +132,12 @@ export function initMockPanel() {
 
   function filteredRows(tab) {
     const query = search.value.trim().toLowerCase();
-    const min = Number(minInput.value || 0);
-    const max = Number(maxInput.value || 0);
+    const useFilters = tab.key === 'crypto';
+    const min = useFilters ? Number(minInput.value || 0) : 0;
+    const max = useFilters ? Number(maxInput.value || 0) : 0;
+    const category = useFilters ? categorySelect.value : 'all';
     return visibleRows(tab).filter((row) => (
-      (categorySelect.value === 'all' || row.cat === categorySelect.value)
+      (category === 'all' || row.cat === category)
       && (!query || `${row.algo} ${row.op} ${row.preview} ${row.input} ${row.output}`.toLowerCase().includes(query))
       && row.inLen >= min
       && (!max || row.inLen <= max)
@@ -291,6 +293,17 @@ export function initMockPanel() {
     else renderDump();
   }
 
+  function updateFilterChrome() {
+    const show = activeTab.key === 'crypto';
+    filterButton.hidden = !show;
+    if (!show) {
+      filterButton.setAttribute('aria-expanded', 'false');
+      advancedFilters.hidden = true;
+      const chevron = $('.rc__chevron', filterButton);
+      if (chevron) chevron.textContent = '⌄';
+    }
+  }
+
   function switchTab(tab) {
     activeTab = tab;
     selectedSeq = null;
@@ -306,6 +319,7 @@ export function initMockPanel() {
       categorySelect.value = 'all';
       updateCategories(tab);
       updateSizeHint();
+      updateFilterChrome();
       renderLogTab(tab);
     } else {
       renderSpecial(tab);
@@ -395,6 +409,7 @@ export function initMockPanel() {
 
   updateCategories(activeTab);
   updateSizeHint();
+  updateFilterChrome();
   renderLogTab(activeTab);
   panelObserver = new IntersectionObserver((entries) => {
     if (entries.some((entry) => entry.isIntersecting)) {

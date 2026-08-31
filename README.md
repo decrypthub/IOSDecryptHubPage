@@ -88,3 +88,7 @@ npm run preview:workers
 ## 在线地址
 
 https://ios.decrypthub.com/
+
+## 协议
+
+[MIT](./LICENSE)

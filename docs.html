@@ -38,7 +38,6 @@
             <a href="#workflow" data-i18n="docs.toc.workflow">分析流程</a>
             <a href="#mcp" data-i18n="docs.toc.mcp">MCP 工具</a>
             <a href="#limits" data-i18n="docs.toc.limits">边界与限制</a>
-            <a href="#security" data-i18n="docs.toc.security">安全使用</a>
           </aside>
 
           <div class="docs__body">
@@ -115,7 +114,7 @@ idh mcp</pre>
                 <article class="workflow__item">
                   <span>01</span>
                   <h3 data-i18n="docs.workflow.capture.h3">先看事件流</h3>
-                  <p data-i18n="docs.workflow.capture.p">在面板中按分类、关键词和输入大小筛选加解密、文件、网络与 Keychain 事件。</p>
+                  <p data-i18n="docs.workflow.capture.p">各日志页支持关键词搜索；加解密页还可按分类和输入大小筛选。</p>
                 </article>
                 <article class="workflow__item">
                   <span>02</span>
@@ -170,17 +169,6 @@ idh mcp</pre>
                 <li data-i18n="docs.limits.l3">MCP 的内存读取和 xref 扫描有大小、可读页和分页限制；响应中的 coverage / confidence 字段必须一并判断。</li>
                 <li data-i18n="docs.limits.l4">网络层是进程内 best-effort 观察：系统 TLS、未走 NSURLSession 的实现或 App 自带库可能需要不同的观察面。</li>
               </ul>
-            </section>
-
-            <section id="security">
-              <h2 data-i18n="docs.security.h2">安全使用</h2>
-              <ul class="prose-list">
-                <li data-i18n="docs.security.l1">Web 与 MCP 服务默认从 8088 开始监听，服务没有身份认证，并可能在端口占用时选择 8088-8108 的空闲端口；仅限可信网络使用，绝不要暴露到公网。</li>
-                <li data-i18n="docs.security.l2">事件、导出文件和 MCP 响应可能包含 Key、IV、明文、Token、路径及请求内容，请按敏感材料保存和传输。</li>
-                <li data-i18n="docs.security.l3">仅分析自有 App 或已获授权目标。注入、重签和脱壳能力会受到设备环境、签名和目标 App 保护机制影响。</li>
-                <li data-i18n="docs.security.l4">提交 Issue 或公开复现步骤前，先删除凭据、用户数据、设备标识和完整原始日志。</li>
-              </ul>
-              <p data-i18n="docs.security.p">遇到问题可在 GitHub Issues 反馈，并附上脱敏后的版本、设备环境和诊断摘要。</p>
             </section>
           </div>
         </div>
