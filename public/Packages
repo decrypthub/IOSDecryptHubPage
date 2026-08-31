@@ -9,10 +9,10 @@ Section: Tweaks
 Depends: ellekit, preferenceloader
 Conflicts: com.iosdecrypthub.trollstore
 Filename: debs/com.iosdecrypthub_1.24.7_roothide.deb
-Size: 625480
-MD5sum: 6cb3e7ad8a2a530cd41e3ca9731c06d6
-SHA1: 955120c9879626f40b8de4e4bba11edd546370a6
-SHA256: 69690c0418fdd085a8ef4906e9e5fef9cb0f9b89bbc24b4fd78c6b3eb119734d
+Size: 626036
+MD5sum: 777eb8842b7cccfe82eee407927b73d1
+SHA1: 45f4b64f6c8fbe29b649043b5189591b46903c62
+SHA256: 47757c848660c37a5003886e7c7812d0d09b67254a73560608964355aaf8d4d7
 Depiction: https://ios.decrypthub.com/depictions/com.iosdecrypthub/index.html
 SileoDepiction: https://ios.decrypthub.com/depictions/com.iosdecrypthub/sileo.json
 Icon: https://ios.decrypthub.com/depictions/com.iosdecrypthub/icon.png
@@ -28,10 +28,10 @@ Section: Tweaks
 Depends: ellekit, preferenceloader
 Conflicts: com.iosdecrypthub.trollstore
 Filename: debs/com.iosdecrypthub_1.24.7_rootless.deb
-Size: 477836
-MD5sum: 49e0ba5972aa7a92673a30f22047fcc5
-SHA1: 3cfd1729a56138d0f024eaf21ef29d97248683e3
-SHA256: d998149c5bfdb4efe928762b359b879e1fb1511e45e10837605a8811eb72a8b5
+Size: 478224
+MD5sum: 8c7c5b2986cbba7679528dd16ad15483
+SHA1: 59c4f4f702963c3533bdc8c2004732a90c803593
+SHA256: 83bd8c7a12a45c3ab4e764cc24c94840be0068b3949f6fbbfa473606e7c355b1
 Depiction: https://ios.decrypthub.com/depictions/com.iosdecrypthub/index.html
 SileoDepiction: https://ios.decrypthub.com/depictions/com.iosdecrypthub/sileo.json
 Icon: https://ios.decrypthub.com/depictions/com.iosdecrypthub/icon.png
