@@ -15,6 +15,19 @@
 /Release
   Content-Type: text/plain; charset=utf-8
 
+# 越狱源头像（Sileo / Cydia / Zebra 读仓库根目录）
+/CydiaIcon.png
+  Content-Type: image/png
+
+/CydiaIcon@2x.png
+  Content-Type: image/png
+
+/CydiaIcon@3x.png
+  Content-Type: image/png
+
+/icon.png
+  Content-Type: image/png
+
 # 二进制下载
 /dylibs/*
   Content-Type: application/octet-stream

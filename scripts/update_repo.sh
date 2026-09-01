@@ -129,4 +129,7 @@ SHA256:
 RELEASE
 
 info "已生成 Release"
+if [ ! -f "$PUBLIC_DIR/CydiaIcon.png" ]; then
+    warn "缺少 $PUBLIC_DIR/CydiaIcon.png，Sileo/Cydia 源列表不会显示仓库头像"
+fi
 info "✅ 源索引更新完成！部署后用户添加 $REPO_URL 即可安装"
