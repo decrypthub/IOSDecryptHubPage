@@ -1,6 +1,6 @@
 Package: com.iosdecrypthub
 Name: IOSDecryptHub
-Version: 1.24.9
+Version: 1.24.10
 Architecture: iphoneos-arm64e
 Description: iOS runtime security analysis tool (dylib injection via jailbreak)
 Maintainer: IOSDecryptHub
@@ -8,18 +8,18 @@ Author: IOSDecryptHub
 Section: Tweaks
 Depends: ellekit, preferenceloader
 Conflicts: com.iosdecrypthub.trollstore
-Filename: debs/com.iosdecrypthub_1.24.9_roothide.deb
-Size: 628712
-MD5sum: 0948c57b4d37330f7ec8b90e1e6c7dfc
-SHA1: f32ea5909006e901c685c7e90b24ac36e47f5889
-SHA256: d6f6d5b7e823bf13274cdfc64afb0acf0d6e834452f0c8f5d4e069093daf17f3
+Filename: debs/com.iosdecrypthub_1.24.10_roothide.deb
+Size: 634972
+MD5sum: ec2e52d88d5955db25e98bebcfc9d9c4
+SHA1: 198ad7361b4ca9baabefd1f7b30cf5be1dff36a6
+SHA256: ebe00e0ae0d8a013f3e3fad63c8f22ade3d3e498fd053d8baa146ed1104a4b39
 Depiction: https://ios.decrypthub.com/depictions/com.iosdecrypthub/index.html
 SileoDepiction: https://ios.decrypthub.com/depictions/com.iosdecrypthub/sileo.json
 Icon: https://ios.decrypthub.com/depictions/com.iosdecrypthub/icon.png
 
 Package: com.iosdecrypthub
 Name: IOSDecryptHub
-Version: 1.24.9
+Version: 1.24.10
 Architecture: iphoneos-arm64
 Description: iOS runtime security analysis tool (dylib injection via jailbreak)
 Maintainer: IOSDecryptHub
@@ -27,11 +27,11 @@ Author: IOSDecryptHub
 Section: Tweaks
 Depends: ellekit, preferenceloader
 Conflicts: com.iosdecrypthub.trollstore
-Filename: debs/com.iosdecrypthub_1.24.9_rootless.deb
-Size: 483832
-MD5sum: ecd242683d191a5fb92b5ee6240b0609
-SHA1: f46240919f0b962282cdfbdca82c813be5020a28
-SHA256: b26506d2308282817945f007c8dc8f0973aa000cdcfdb31417551bfbea820ae8
+Filename: debs/com.iosdecrypthub_1.24.10_rootless.deb
+Size: 487176
+MD5sum: 4e2639eabad2996d555e1b9ba10c09ad
+SHA1: c527d88a670f48542bc9d8da5bcaf50d24304661
+SHA256: 7f3f341f4a83c1671fac2a810d054fd8abfaf007fadb3b23d029e7296a481629
 Depiction: https://ios.decrypthub.com/depictions/com.iosdecrypthub/index.html
 SileoDepiction: https://ios.decrypthub.com/depictions/com.iosdecrypthub/sileo.json
 Icon: https://ios.decrypthub.com/depictions/com.iosdecrypthub/icon.png
