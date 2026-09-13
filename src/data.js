@@ -10,11 +10,11 @@ const ICON = {
 };
 
 export const DYLIB_DOWNLOAD = {
-  version: '1.24.10',
-  filename: 'decrypt_helper-1.24.10.dylib',
-  url: '/dylibs/decrypt_helper-1.24.10.dylib',
+  version: '1.25.0',
+  filename: 'decrypt_helper-1.25.0.dylib',
+  url: '/dylibs/decrypt_helper-1.25.0.dylib',
   size: '2.3 MB',
-  sha256: '41abd4ada39026e525f76a42f34b2b6acdc5b4766e6cf1cca7d8953e93c04d08',
+  sha256: 'eb88e4a7b91cd69581737052a1ed4935838c6656404c410830cb764c4aa549bc',
 };
 
 export const CAPABILITIES = [
@@ -168,7 +168,7 @@ export const MCP_TOOLS = [
     desc: '握手工具，应最先调用。返回插件版本、打包变体、CPU 架构、当前阶段与按 tier 的 hook 能力标志，据此决定使用哪种分析路径。',
     desc_en: 'Handshake tool, call first. Returns plugin version, packaging variant, CPU arch, current phase and per-tier hook capability flags so you can choose a supported path.',
     in: '{\n  "name": "get_capabilities",\n  "arguments": {}\n}',
-    out: '{ "version":"1.24.5", "variant":"trollstore", "arch":"arm64",\n  "phase":"observe",\n  "capabilities": { "hook_import":true, "hook_method":true, "unpack":true } }',
+    out: '{ "version":"1.25.0", "variant":"trollstore", "arch":"arm64",\n  "phase":"observe",\n  "capabilities": { "hook_import":true, "hook_method":true, "unpack":true } }',
   },
   {
     name: 'disassemble', tier: 'tier-0', req: 'bytes',

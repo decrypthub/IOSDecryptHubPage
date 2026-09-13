@@ -147,8 +147,8 @@ function scriptFor(lang) {
       ms: 640,
       holdMs: 1100,
       result: zh
-        ? 'version     1.24.8\nvariant     trollstore\narch        arm64\nphase       observe\nhost        CryptoTestHost\ncapabilities\n  hook_import   true\n  hook_method   true\n  unpack        true\n  mcp           true\ntools       44'
-        : 'version     1.24.8\nvariant     trollstore\narch        arm64\nphase       observe\nhost        CryptoTestHost\ncapabilities\n  hook_import   true\n  hook_method   true\n  unpack        true\n  mcp           true\ntools       44',
+        ? 'version     1.25.0\nvariant     trollstore\narch        arm64\nphase       observe\nhost        CryptoTestHost\ncapabilities\n  hook_import   true\n  hook_method   true\n  unpack        true\n  mcp           true\ntools       44'
+        : 'version     1.25.0\nvariant     trollstore\narch        arm64\nphase       observe\nhost        CryptoTestHost\ncapabilities\n  hook_import   true\n  hook_method   true\n  unpack        true\n  mcp           true\ntools       44',
     },
     {
       type: 'tool',
