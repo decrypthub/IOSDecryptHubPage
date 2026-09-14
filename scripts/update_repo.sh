@@ -109,6 +109,9 @@ PACKAGES_SHA256=$(shasum -a 256 "$PACKAGES_FILE" | cut -d' ' -f1)
 PACKAGES_GZ_SHA256=$(shasum -a 256 "$PACKAGES_FILE.gz" | cut -d' ' -f1)
 PACKAGES_BZ2_SHA256=$(shasum -a 256 "$PACKAGES_FILE.bz2" | cut -d' ' -f1)
 
+# APT 需要有 Date 字段；缺失会告警 "Invalid 'Date' entry in Release file"
+RELEASE_DATE=$(LC_ALL=C date -u "+%a, %d %b %Y %H:%M:%S UTC")
+
 cat > "$RELEASE_FILE" << RELEASE
 Origin: $REPO_ORIGIN
 Label: $REPO_LABEL
@@ -118,6 +121,7 @@ Codename: $REPO_CODENAME
 Architectures: $REPO_ARCH
 Components: $REPO_COMPONENT
 Description: $REPO_DESC
+Date: $RELEASE_DATE
 MD5Sum:
  $PACKAGES_MD5 $PACKAGES_SIZE Packages
  $PACKAGES_GZ_MD5 $PACKAGES_GZ_SIZE Packages.gz
