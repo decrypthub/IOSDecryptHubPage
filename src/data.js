@@ -10,11 +10,11 @@ const ICON = {
 };
 
 export const DYLIB_DOWNLOAD = {
-  version: '1.25.5',
-  filename: 'decrypt_helper-1.25.5.dylib',
-  url: '/dylibs/decrypt_helper-1.25.5.dylib',
+  version: '1.25.6',
+  filename: 'decrypt_helper-1.25.6.dylib',
+  url: '/dylibs/decrypt_helper-1.25.6.dylib',
   size: '2.3 MB',
-  sha256: '588f8dbe819cc79fa1056cd599c631f97c8e21c9acf89fb469efeb19bf0acd08',
+  sha256: '60d6571cfeb36b34abace98b59d2550351a5e3393b68f2bdffc4615be8279bcf',
 };
 
 export const CAPABILITIES = [
