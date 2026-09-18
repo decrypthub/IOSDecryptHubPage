@@ -269,8 +269,8 @@ function scriptFor(lang) {
       type: 'assistant',
       thinkMs: 700,
       text: zh
-        ? '脚本会每次取新的 unix ts，按 #119 的格式重算 X-Sign，JSON 用 separators=(",", ":") 对齐 53 字节明文。Key / IV / HMAC key / 口令都从环境变量读。\n\n这是演示数据，只适用于你已授权分析的目标。不要把捕获到的密钥提交到仓库或发到公网。'
-        : 'The script takes a fresh unix ts each time, rebuilds X-Sign in the #119 format, and emits JSON with separators=(",", ":") to match the 53-byte plaintext. Key / IV / HMAC key / password all come from the environment.\n\nDemo values only, for a target you are authorized to analyze. Do not commit captured keys or post them publicly.',
+        ? '脚本会每次取新的 unix ts，按 #119 的格式重算 X-Sign，JSON 用 separators=(",", ":") 对齐 53 字节明文。Key / IV / HMAC key / 口令都从环境变量读。\n\n这是演示数据。不要把捕获到的密钥提交到仓库或发到公网。'
+        : 'The script takes a fresh unix ts each time, rebuilds X-Sign in the #119 format, and emits JSON with separators=(",", ":") to match the 53-byte plaintext. Key / IV / HMAC key / password all come from the environment.\n\nDemo values only. Do not commit captured keys or post them publicly.',
     },
   ];
 }

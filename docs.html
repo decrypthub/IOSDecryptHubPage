@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="IOSDecryptHub 使用文档：选择注入方式，连接运行时面板，并使用 idh 与 MCP 进行授权安全分析。"
+      content="IOSDecryptHub 使用文档：选择注入方式，连接运行时面板，并使用 idh 与 MCP 进行运行时安全分析。"
     />
     <meta name="theme-color" content="#050506" />
     <title>文档 · IOSDecryptHub</title>
@@ -43,11 +43,11 @@
           <div class="docs__body">
             <section id="start">
               <h2 data-i18n="docs.start.h2">开始前</h2>
-              <p data-i18n="docs.start.lead">IOSDecryptHub 运行在目标 App 进程内。它记录调用发生时的参数、结果和调用栈，不是代理服务器，也不会替你获得目标 App 的授权。</p>
+              <p data-i18n="docs.start.lead">IOSDecryptHub 运行在目标 App 进程内。它记录调用发生时的参数、结果和调用栈，不是代理服务器。</p>
               <ol class="start__steps">
                 <li>
                   <b data-i18n="docs.start.step1t">确认分析范围</b>
-                  <p data-i18n="docs.start.step1d">只对自有 App 或已获授权的测试目标操作，并准备一台支持 TrollStore 或越狱注入的设备。</p>
+                  <p data-i18n="docs.start.step1d">准备一台支持 TrollStore 或越狱注入的设备。</p>
                 </li>
                 <li>
                   <b data-i18n="docs.start.step2t">选择注入路线</b>
@@ -76,7 +76,7 @@
                   <p data-i18n="docs.install.tf.p1">适用于已经安装 TrollStore 和兼容注入器的设备：</p>
                   <ol class="prose-list">
                     <li data-i18n="docs.install.tf.s1">从首页或 GitHub Releases 下载当前版本 dylib。</li>
-                    <li data-i18n="docs.install.tf.s2">在注入器中选择授权目标 App，添加 dylib 并执行注入。</li>
+                    <li data-i18n="docs.install.tf.s2">在注入器中选择目标 App，添加 dylib 并执行注入。</li>
                     <li data-i18n="docs.install.tf.s3">完全退出并重新启动目标 App。</li>
                     <li data-i18n="docs.install.tf.s4">从悬浮窗或日志输出确认面板地址，再用浏览器打开。</li>
                   </ol>
@@ -89,7 +89,7 @@
                   <ol class="prose-list">
                     <li data-i18n="docs.install.jb.s1">在 Sileo、Zebra 等包管理器中添加插件源。</li>
                     <li data-i18n="docs.install.jb.s2">安装 <code>com.iosdecrypthub</code>，选择与设备环境匹配的包。</li>
-                    <li data-i18n="docs.install.jb.s3">在“设置 → IOSDecryptHub”中选择授权目标 App。</li>
+                    <li data-i18n="docs.install.jb.s3">在“设置 → IOSDecryptHub”中选择目标 App。</li>
                     <li data-i18n="docs.install.jb.s4">重启目标 App，并使用设备端显示的地址连接。</li>
                   </ol>
                   <code class="install-path__repo">https://ios.decrypthub.com/</code>

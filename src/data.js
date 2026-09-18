@@ -10,11 +10,11 @@ const ICON = {
 };
 
 export const DYLIB_DOWNLOAD = {
-  version: '1.25.6',
-  filename: 'decrypt_helper-1.25.6.dylib',
-  url: '/dylibs/decrypt_helper-1.25.6.dylib',
-  size: '2.3 MB',
-  sha256: '60d6571cfeb36b34abace98b59d2550351a5e3393b68f2bdffc4615be8279bcf',
+  version: '1.27.2',
+  filename: 'decrypt_helper-1.27.2.dylib',
+  url: '/dylibs/decrypt_helper-1.27.2.dylib',
+  size: '2.4 MB',
+  sha256: '9c6989ec5b2b1e62bac45601ac7c4e13f4691b7c1969407bfbded0557905c831',
 };
 
 export const CAPABILITIES = [
@@ -153,7 +153,6 @@ export const DUMP_STEPS = [
 export const DUMP_NOTES = [
   { good: true, label: '覆盖范围', text: '主程序 + App 自带、已加载、cryptid=1 的 Frameworks / .dylib。' },
   { good: false, label: '边界 · 扩展进程', text: 'PlugIns/*.appex（Share/Widget）是独立进程，主进程未加载，砸不到。' },
-  { good: false, label: '合规', text: '仅限授权安全测试与自有 App，分发受版权保护的程序可能违法。' },
 ];
 
 const compactTool = (name, tier, req, desc, args, result, descEn) => ({
@@ -426,4 +425,3 @@ export const PANEL_SYMBOLS = {
 export const PANEL_DUMP_IMAGES = [
   { name: 'CryptoTestHost', kind: '主程序', size: 139232, cryptid: 0, encrypted: false },
 ];
-

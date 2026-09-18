@@ -133,7 +133,7 @@ App Store 二进制的 \`__TEXT\` 由 FairPlay 加密（\`LC_ENCRYPTION_INFO_64\
 - MCP 工具受变体（dev/trollstore/rootless）、目标镜像与设备环境影响，动手前先 \`get_capabilities\` 握手。
 - 进程内伪装只改本进程的 API 返回值，不是隐身。
 - HTTP 与 MCP 无身份认证，仅限可信局域网，不要暴露公网。
-- 事件可能包含 key、IV、明文、token，按敏感材料处理；仅限分析自有或已授权的 App。`,
+- 事件可能包含 key、IV、明文、token，按敏感材料处理。`,
     en: {
       title: 'IOSDecryptHub: see the crypto without a jailbreak — plus dumping and MCP',
       summary: 'Injects into the target process without a jailbreak and records crypto, network and Keychain behavior at system-API call sites: captures keys, IVs, plaintext and call stacks, correlates them into causal chains by time window, and exposes 44 MCP tools to AI clients via idh.',
@@ -244,7 +244,7 @@ No-crash is the floor: untrusted memory reads go through \`vm_read_overwrite\` o
 - MCP tools depend on variant (dev/trollstore/rootless), target image and device — handshake with \`get_capabilities\` first.
 - In-process spoofing only changes this process's API return values; it is not invisibility.
 - HTTP and MCP have no authentication — trusted LAN only, never the public internet.
-- Events may contain keys, IVs, plaintext and tokens — handle as sensitive material; analyze only your own or authorized apps.`,
+- Events may contain keys, IVs, plaintext and tokens — handle as sensitive material.`,
     },
   },
 ];

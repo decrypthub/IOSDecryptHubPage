@@ -6,12 +6,12 @@ Codename: ios
 Architectures: iphoneos-arm64 iphoneos-arm64e
 Components: main
 Description: IOSDecryptHub - iOS Runtime Security Analysis Tool
-Date: Mon, 14 Sep 2026 13:32:25 UTC
+Date: Fri, 18 Sep 2026 07:45:32 UTC
 MD5Sum:
- aee79ce3384a597ab206aea805820318 1641 Packages
- 1f0c326d3464ccd8f382ee168d070f63 674 Packages.gz
- d41bb6c73728c8611faafff768616f5e 831 Packages.bz2
+ 90a2d04f8bb73be5748105a45cad904e 1641 Packages
+ b8eb0b1cdfb0c43cf7f52faf15452136 673 Packages.gz
+ fda846a72f97aa16564b2642f1b77c9f 828 Packages.bz2
 SHA256:
- bf35a21b3f5b7c141d828eb5196472790d0e530e6fa4f7de3659431968bf97b3 1641 Packages
- 32bfd464071c24a8d328494ba5de9ac0a74ce8d11314c968c0a6b2729467e53b 674 Packages.gz
- a8b175950a455317f096bad9233d8dc6ac1993dd174ea0f17836f88ac50a67db 831 Packages.bz2
+ 49562a75ce2e6692822a3319241579db7a847e27ed2e97787c7642a33a827c6e 1641 Packages
+ b5e201cdc26f321ab09d656f90ecf736ca504df53caec3256f2c6483be289aea 673 Packages.gz
+ b129af394bfd19cb9cead5eb68ba9230937f9c6f911399c4c47dc488bc92f3ac 828 Packages.bz2
