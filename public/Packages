@@ -1,6 +1,6 @@
 Package: com.iosdecrypthub
 Name: IOSDecryptHub
-Version: 1.27.3
+Version: 1.27.4
 Architecture: iphoneos-arm64e
 Description: iOS 运行时安全分析工具 — 注入目标 App 后实时查看加解密明文、密钥、文件与网络行为（WebUI + MCP）
 Maintainer: IOSDecryptHub
@@ -8,18 +8,18 @@ Author: IOSDecryptHub
 Section: Tweaks
 Depends: ellekit
 Conflicts: com.iosdecrypthub.trollstore
-Filename: debs/com.iosdecrypthub_1.27.3_roothide.deb
-Size: 747796
-MD5sum: 82cfa61b4c0421e5dc1ee476f6f938c4
-SHA1: bcbaf02a161c1ab248d3ee9c9fc28e81d7ff80a5
-SHA256: cbb76dc64c5f45dc9019cb86a0f9559f5f1896ea86f23fcff828dfc8b838ab6c
+Filename: debs/com.iosdecrypthub_1.27.4_roothide.deb
+Size: 757184
+MD5sum: b2c257e805641c75e1d05b392fc666c8
+SHA1: 4d14a2dbaaa9e13500d2539680bf1c5727ece8ca
+SHA256: e7cc72ab26cffedf7cdc7bd716305429dda6ce265680226517a8c0405ba756f5
 Depiction: https://ios.decrypthub.com/depictions/com.iosdecrypthub/index.html
 SileoDepiction: https://ios.decrypthub.com/depictions/com.iosdecrypthub/sileo.json
 Icon: https://ios.decrypthub.com/depictions/com.iosdecrypthub/icon.png
 
 Package: com.iosdecrypthub
 Name: IOSDecryptHub
-Version: 1.27.3
+Version: 1.27.4
 Architecture: iphoneos-arm64
 Description: iOS 运行时安全分析工具 — 注入目标 App 后实时查看加解密明文、密钥、文件与网络行为（WebUI + MCP）
 Maintainer: IOSDecryptHub
@@ -27,11 +27,11 @@ Author: IOSDecryptHub
 Section: Tweaks
 Depends: ellekit
 Conflicts: com.iosdecrypthub.trollstore
-Filename: debs/com.iosdecrypthub_1.27.3_rootless.deb
-Size: 561884
-MD5sum: c1e9db7f7ec546d49e47d5fa6dc9ecc1
-SHA1: b8163bf72ddbb3a90efa2884c1eb632664c319ab
-SHA256: 85326dded1fa214fd2f342d7ca552ab749e72d8998277d2510686c6667e4647f
+Filename: debs/com.iosdecrypthub_1.27.4_rootless.deb
+Size: 569224
+MD5sum: f56b55636a2aa467a0258c06a42464cd
+SHA1: 22eeb11a805311c2335aaef52bbc0229cf0ed032
+SHA256: 93e1115e37d0fa7b06279f4eb046077d52eb87494239bd602483d00f13b72a5b
 Depiction: https://ios.decrypthub.com/depictions/com.iosdecrypthub/index.html
 SileoDepiction: https://ios.decrypthub.com/depictions/com.iosdecrypthub/sileo.json
 Icon: https://ios.decrypthub.com/depictions/com.iosdecrypthub/icon.png
