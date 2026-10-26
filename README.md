@@ -9,7 +9,7 @@ iOS App 运行时加解密审计平台。本站为交互式作品级站点，Vit
 - [越狱新版 IOSDecryptHubJB](https://github.com/decrypthub/IOSDecryptHubJB)
 - [官网 IOSDecryptHubPage](https://github.com/decrypthub/IOSDecryptHubPage)
 
-既有 [IOSDecryptHub](https://github.com/decrypthub/IOSDecryptHub) 保留旧源码、Release 与更新链接；本轮不修改站内现有包资产或源索引。
+既有 [IOSDecryptHub](https://github.com/decrypthub/IOSDecryptHub) 保留旧源码、Release 与更新链接；新版本由两个独立项目分别发布，本站继续使用原域名、包 ID 与源签名公钥分发下载和完整包更新。
 
 ## 页面结构
 
@@ -100,3 +100,10 @@ https://ios.decrypthub.com/
 ## 协议
 
 [MIT](./LICENSE)
+
+## v1.27.6 维护更新
+
+- 首页 dylib 来自 IOSDecryptHubTrollStore 的 trollstore 构建；越狱源完整 deb 来自 IOSDecryptHubJB。
+- 原域名、包 ID、源公钥保持兼容，保留 v1.27.5；索引生成必须成功签名并通过既有公钥验证。
+- 越狱 Manager 查询 APT 候选版本并打开包管理器更新完整包，不再独立覆盖引擎。
+- 常驻分析服务、Inline Hook 与 Trace 属于后续越狱项目规划。

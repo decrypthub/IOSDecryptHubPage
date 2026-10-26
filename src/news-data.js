@@ -1,5 +1,5 @@
 // 技术文章（news）数据源。
-// 公开发布版本只保留一篇文章：只写事实，不写铺垫和导航，密度优先、覆盖完整。
+// 技术文章与正式发布说明：区分已交付能力和后续规划。
 // content 为 markdown，双语。
 //
 // LEGACY_SLUG_ALIASES：历史文章 slug → 本文 slug，保证旧 #/<slug> 链接不 404。
@@ -19,6 +19,30 @@ export const LEGACY_SLUG_ALIASES = {
 };
 
 export const NEWS_ARTICLES = [
+  {
+    slug: 'v1-27-6-independent-projects',
+    date: '2026-10-26',
+    tag: '更新',
+    tagEn: 'Release',
+    title: 'v1.27.6：巨魔与越狱独立维护，越狱改用整包更新',
+    summary: '两个公开项目分别发布；巨魔维持既有能力，越狱按环境提供完整 deb，交给包管理器统一升级。',
+    content: `巨魔版由 [IOSDecryptHubTrollStore](https://github.com/decrypthub/IOSDecryptHubTrollStore/releases/tag/v1.27.6) 维护，继续提供现有注入、Web / MCP 与脱壳能力。
+
+越狱版由 [IOSDecryptHubJB](https://github.com/decrypthub/IOSDecryptHubJB/releases/tag/v1.27.6) 维护，基于组织正式完整 v1 源码构建 Manager、Loader、一次性管理 daemon 和引擎。rootless 与 RootHide 分别提供适配的完整 deb。
+
+在 Sileo / Zebra 添加 https://ios.decrypthub.com 后刷新源，升级 IOSDecryptHub 完整包。v1.27.6 的 Manager 按包架构检查 APT 版本，更新和回退交给包管理器；旧单引擎替换路径已移除。源公钥与包 ID 沿用既有配置，保留旧版本。
+
+后续越狱版将参考 Android 项目改造常驻分析服务与手机 UI，并增加 Inline Hook / Trace。本次维护更新不包含这些新能力，当前 daemon 仍在处理请求后退出。已完成 Mac 回归与完整包构建检查，尚未进行手机安装升级验收。`,
+    en: {
+      title: 'v1.27.6: independent editions and complete jailbreak updates',
+      summary: 'Separate public releases. TrollStore retains existing capabilities; jailbreak users update complete deb packages through their package manager.',
+      content: `The [TrollStore edition](https://github.com/decrypthub/IOSDecryptHubTrollStore/releases/tag/v1.27.6) retains its existing injection, Web / MCP and dumping capabilities.
+
+The [jailbreak edition](https://github.com/decrypthub/IOSDecryptHubJB/releases/tag/v1.27.6) packages Manager, Loader, the one-shot management daemon and engine together, with separate rootless and RootHide builds. Add https://ios.decrypthub.com in Sileo / Zebra and refresh to update the complete package. The package ID and repository signing key remain compatible; old versions are retained.
+
+Version checks now use the APT index for the installed package architecture. Installation and rollback belong to the package manager; standalone engine replacement is removed. Persistent phone analysis services, a new Manager, Inline Hook and Trace remain future work. Mac regression and package checks passed; device installation and upgrade have not been verified.`,
+    },
+  },
   {
     slug: 'deep-dive',
     date: '2026-08-04',

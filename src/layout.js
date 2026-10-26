@@ -33,7 +33,7 @@ const ICON_TELEGRAM = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><
 const ICON_X = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.4 3h3.3L13.9 11 22 21h-6.1l-4.8-6.3L5.5 21H2.2l7.2-8.2L2 3h6.2l4.3 5.7L17.4 3Zm-1.1 16.2h1.8L7.8 4.7H5.8l10.5 14.5Z"/></svg>`;
 
 // 公开仓：越狱插件 + GitHub Release。不要写成 taisuii/IOSDecryptHub（那是闭源核心）。
-const GITHUB_REPO = 'https://github.com/decrypthub/IOSDecryptHub';
+const GITHUB_REPO = 'https://github.com/decrypthub/IOSDecryptHubTrollStore';
 
 /**
  * Render shared nav + footer into #nav / #foot.

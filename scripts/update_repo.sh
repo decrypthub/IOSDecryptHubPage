@@ -39,6 +39,15 @@ error() { echo -e "${RED}[✗]${NC} $1"; exit 1; }
 
 command -v dpkg-deb >/dev/null 2>&1 || error "需要 dpkg-deb (brew install dpkg)"
 
+# 发布源必须具备签名环境；在修改索引前检查，不能带旧签名或无签名继续发布。
+GPG_HOME="${DH_REPO_GNUPGHOME:-$HOME/.gnupg-dhrepo}"
+GPG_KEY="${DH_REPO_GPG_KEY:-repo@ios.decrypthub.com}"
+command -v gpg >/dev/null 2>&1 || error "缺少 gpg，停止生成发布索引"
+command -v gpgv >/dev/null 2>&1 || error "缺少 gpgv，不能验证现有信任公钥"
+[ -s "$PUBLIC_DIR/key.gpg.bin" ] || error "缺少既有源信任公钥"
+GNUPGHOME="$GPG_HOME" gpg --list-secret-keys "$GPG_KEY" >/dev/null 2>&1 \
+    || error "未找到源签名密钥，停止生成发布索引"
+
 # ---------- add 子命令 ----------
 if [ "${1:-}" = "add" ]; then
     [ -z "${2:-}" ] && error "用法: $0 add <path.deb>"
@@ -138,22 +147,14 @@ info "已生成 Release"
 # 不签名的仓库在现代 APT 上是硬错误（E: ... is not signed）→ 索引根本不更新，
 # 用户永远看不到新版本。签名 + 把公钥装进设备信任链（见 IOSDecryptHubJB 的 postinst）
 # 才能让源真正可用。
-GPG_HOME="${DH_REPO_GNUPGHOME:-$HOME/.gnupg-dhrepo}"
-GPG_KEY="${DH_REPO_GPG_KEY:-repo@ios.decrypthub.com}"
-if command -v gpg >/dev/null 2>&1 && GNUPGHOME="$GPG_HOME" gpg --list-secret-keys "$GPG_KEY" >/dev/null 2>&1; then
-    GNUPGHOME="$GPG_HOME" gpg --batch --yes --default-key "$GPG_KEY" --digest-algo SHA256 \
-        --clearsign -o "$PUBLIC_DIR/InRelease" "$RELEASE_FILE" 2>/dev/null \
-        && info "已生成 InRelease（明文签名，APT 首选）" || warn "InRelease 签名失败"
-    GNUPGHOME="$GPG_HOME" gpg --batch --yes --default-key "$GPG_KEY" --digest-algo SHA256 \
-        --detach-sign -o "$PUBLIC_DIR/Release.gpg" "$RELEASE_FILE" 2>/dev/null \
-        && info "已生成 Release.gpg（分离签名，兼容旧客户端）" || warn "Release.gpg 签名失败"
-    GNUPGHOME="$GPG_HOME" gpg --batch --yes --export --armor "$GPG_KEY" > "$PUBLIC_DIR/key.gpg" 2>/dev/null \
-        && info "已导出公钥 public/key.gpg" || warn "公钥导出失败"
-    GNUPGHOME="$GPG_HOME" gpg --batch --yes --export "$GPG_KEY" > "$PUBLIC_DIR/key.gpg.bin" 2>/dev/null || true
-else
-    warn "未找到签名密钥（$GPG_HOME 下的 $GPG_KEY）—— 仓库将处于未签名状态："
-    warn "  现代 APT 会报 'E: ... is not signed' 并拒绝更新索引，用户拿不到新版本。"
-fi
+GNUPGHOME="$GPG_HOME" gpg --batch --yes --default-key "$GPG_KEY" --digest-algo SHA256 \
+    --clearsign -o "$PUBLIC_DIR/InRelease" "$RELEASE_FILE"
+GNUPGHOME="$GPG_HOME" gpg --batch --yes --default-key "$GPG_KEY" --digest-algo SHA256 \
+    --detach-sign -o "$PUBLIC_DIR/Release.gpg" "$RELEASE_FILE"
+# 使用仓库既有公钥验证，禁止签名时自动更换信任根。
+gpgv --keyring "$PUBLIC_DIR/key.gpg.bin" "$PUBLIC_DIR/InRelease"
+gpgv --keyring "$PUBLIC_DIR/key.gpg.bin" "$PUBLIC_DIR/Release.gpg" "$RELEASE_FILE"
+info "已生成并验证 InRelease / Release.gpg（沿用既有信任公钥）"
 if [ ! -f "$PUBLIC_DIR/CydiaIcon.png" ]; then
     warn "缺少 $PUBLIC_DIR/CydiaIcon.png，Sileo/Cydia 源列表不会显示仓库头像"
 fi
