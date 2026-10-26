@@ -63,7 +63,7 @@ Dashboard 构建配置应对齐：
 | Root directory | `/`（本仓库根目录） |
 | Production branch | `main` |
 
-`wrangler.jsonc` 里的 `name` 必须和 Dashboard 里的 Worker 名称一致（当前是 `ios-decrypthub`）。不一致时改 Dashboard 名称，或改配置文件里的 `name`。
+`wrangler.jsonc` 里的 `name` 必须和 Dashboard 里的 Worker 名称一致（2026-10-26 实测为 `iosdecrypthubpage`，已绑定 `ios.decrypthub.com`）。以现有域名绑定的 Worker 为准，不另建同名近似站点。
 
 Cloudflare 的 GitHub 集成应关联组织内的 `decrypthub/IOSDecryptHubPage` 仓库。
 
@@ -107,3 +107,12 @@ https://ios.decrypthub.com/
 - 原域名、包 ID、源公钥保持兼容，保留 v1.27.5；索引生成必须成功签名并通过既有公钥验证。
 - 越狱 Manager 查询 APT 候选版本并打开包管理器更新完整包，不再独立覆盖引擎。
 - 常驻分析服务、Inline Hook 与 Trace 属于后续越狱项目规划。
+
+如需通过已登录的 Wrangler 手动部署到同一个官网 Worker：
+
+```bash
+npm run build
+npx wrangler deploy
+```
+
+部署后核验 `/Packages`、`/InRelease`、两类完整 deb 和首页 dylib；不能仅凭推送成功判定源已上线。

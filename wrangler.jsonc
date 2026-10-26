@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   // 必须与 Cloudflare Dashboard 里的 Worker 名称完全一致
-  "name": "ios-decrypthub",
+  "name": "iosdecrypthubpage",
   "compatibility_date": "2026-08-31",
   "assets": {
     "directory": "./dist"
