@@ -65,7 +65,7 @@ Dashboard 构建配置应对齐：
 
 `wrangler.jsonc` 里的 `name` 必须和 Dashboard 里的 Worker 名称一致（2026-10-26 实测为 `iosdecrypthubpage`，已绑定 `ios.decrypthub.com`）。以现有域名绑定的 Worker 为准，不另建同名近似站点。
 
-Cloudflare 的 GitHub 集成应关联组织内的 `decrypthub/IOSDecryptHubPage` 仓库。
+Cloudflare 的 GitHub 集成应关联组织内的 `decrypthub/IOSDecryptHubPage` 仓库。2026-10-26 已通过 Wrangler 手动部署验证；组织迁移后的自动构建触发尚未验证。
 
 自定义域名：Worker → Settings → Domains & Routes → Add → Custom Domain，填 `ios.decrypthub.com`（域名必须已经接入 Cloudflare）。
 
@@ -116,3 +116,5 @@ npx wrangler deploy
 ```
 
 部署后核验 `/Packages`、`/InRelease`、两类完整 deb 和首页 dylib；不能仅凭推送成功判定源已上线。
+
+2026-10-26 上线核验：官网 v1.27.6 已部署到现有 `iosdecrypthubpage`，`ios.decrypthub.com` 的首页、dylib、rootless / RootHide deb 与发布产物逐字节一致；线上 Packages / 压缩索引 / Release 哈希正确，InRelease 和 Release.gpg 均通过既有源公钥验证。保留 v1.27.5 及原有信任公钥。
