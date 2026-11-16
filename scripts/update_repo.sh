@@ -145,7 +145,7 @@ info "已生成 Release"
 
 # ---------- 签名 Release ----------
 # 不签名的仓库在现代 APT 上是硬错误（E: ... is not signed）→ 索引根本不更新，
-# 用户永远看不到新版本。签名 + 把公钥装进设备信任链（见 IOSDecryptHubJB 的 postinst）
+# 用户永远看不到新版本。签名 + 把公钥装进设备信任链（见 IOSDecryptHub 的 postinst）
 # 才能让源真正可用。
 GNUPGHOME="$GPG_HOME" gpg --batch --yes --default-key "$GPG_KEY" --digest-algo SHA256 \
     --clearsign -o "$PUBLIC_DIR/InRelease" "$RELEASE_FILE"
