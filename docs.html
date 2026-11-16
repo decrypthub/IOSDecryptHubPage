@@ -67,13 +67,14 @@
 
             <section id="install">
               <h2 data-i18n="docs.install.h2">安装与连接</h2>
-              <p data-i18n="docs.install.lead">三条注入路径共享同一份核心引擎。差别只在于谁负责把 dylib 放进目标 App 进程。</p>
+              <p data-i18n="docs.install.lead">巨魔版与越狱版分别维护源码和发布。请选择与设备环境匹配的版本，安装方式与功能以对应仓库说明为准。</p>
 
               <div class="install-grid">
                 <article class="install-path">
                   <span class="install-path__index">01 · TROLLSTORE</span>
                   <h3 data-i18n="docs.install.tf.h3">TrollStore 注入器（推荐）</h3>
                   <p data-i18n="docs.install.tf.p1">适用于已经安装 TrollStore 和兼容注入器的设备：</p>
+                  <p><a href="https://github.com/decrypthub/IOSDecryptHubTrollStore" target="_blank" rel="noopener noreferrer" data-i18n="repo.trollstore">巨魔版源码</a> · <a href="https://github.com/decrypthub/IOSDecryptHubTrollStore/releases" target="_blank" rel="noopener noreferrer" data-i18n="repo.trollstore.releases">巨魔版下载</a></p>
                   <ol class="prose-list">
                     <li data-i18n="docs.install.tf.s1">从首页或 GitHub Releases 下载当前版本 dylib。</li>
                     <li data-i18n="docs.install.tf.s2">在注入器中选择目标 App，添加 dylib 并执行注入。</li>
@@ -86,6 +87,7 @@
                   <span class="install-path__index">02 · JAILBREAK</span>
                   <h3 data-i18n="docs.install.jb.h3">越狱插件源</h3>
                   <p data-i18n="docs.install.jb.p1">适用于 rootless / roothide 环境。两种包对应不同的设备架构，不能混装：</p>
+                  <p><a href="https://github.com/decrypthub/IOSDecryptHub" target="_blank" rel="noopener noreferrer" data-i18n="repo.jailbreak">越狱版源码</a> · <a href="https://github.com/decrypthub/IOSDecryptHub/releases" target="_blank" rel="noopener noreferrer" data-i18n="repo.jailbreak.releases">越狱版下载</a></p>
                   <ol class="prose-list">
                     <li data-i18n="docs.install.jb.s1">在 Sileo、Zebra 等包管理器中添加插件源。</li>
                     <li data-i18n="docs.install.jb.s2">安装 <code>com.iosdecrypthub</code>，选择与设备环境匹配的包。</li>

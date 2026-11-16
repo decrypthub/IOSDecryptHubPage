@@ -6,10 +6,10 @@ iOS App 运行时加解密审计平台。本站为交互式作品级站点，Vit
 代码在 decrypthub 组织公开维护：
 
 - [巨魔版 IOSDecryptHubTrollStore](https://github.com/decrypthub/IOSDecryptHubTrollStore)
-- [越狱新版 IOSDecryptHubJB](https://github.com/decrypthub/IOSDecryptHubJB)
+- [越狱版 IOSDecryptHub](https://github.com/decrypthub/IOSDecryptHub)
 - [官网 IOSDecryptHubPage](https://github.com/decrypthub/IOSDecryptHubPage)
 
-既有 [IOSDecryptHub](https://github.com/decrypthub/IOSDecryptHub) 保留旧源码、Release 与更新链接；新版本由两个独立项目分别发布，本站继续使用原域名、包 ID 与源签名公钥分发下载和完整包更新。
+[IOSDecryptHub](https://github.com/decrypthub/IOSDecryptHub) 继续作为越狱版正式主仓，保留既有源码、Star、Issues 和 Release，并承接原 IOSDecryptHubJB 的开发与 v1.27.6 完整包。巨魔版由 IOSDecryptHubTrollStore 独立发布。全站页脚与安装文档分别指向两个版本的源码和下载。本站继续使用原域名、包 ID 与源签名公钥分发下载和完整包更新。
 
 ## 页面结构
 
@@ -80,8 +80,8 @@ npm run preview:workers
 新版本发布时，先同步 dylib 到官网静态目录并更新首页下载元数据：
 
 ```bash
-./scripts/sync_dylib.sh                 # 自动选择 ../IOSDecryptHub 下最新的版本
-./scripts/sync_dylib.sh ../IOSDecryptHub/decrypt_helper-1.23.8.dylib
+./scripts/sync_dylib.sh                 # 自动选择 ../IOSDecryptHubTrollStore 下最新的版本
+./scripts/sync_dylib.sh ../IOSDecryptHubTrollStore/decrypt_helper-<version>.dylib
 ```
 
 脚本会把 dylib 复制到 `public/dylibs/`，并刷新 `src/data.js` 里的版本、大小与 SHA-256。
@@ -103,7 +103,7 @@ https://ios.decrypthub.com/
 
 ## v1.27.6 维护更新
 
-- 首页 dylib 来自 IOSDecryptHubTrollStore 的 trollstore 构建；越狱源完整 deb 来自 IOSDecryptHubJB。
+- 首页 dylib 来自 IOSDecryptHubTrollStore 的 trollstore 构建；越狱源完整 deb 由 IOSDecryptHub 主仓维护（v1.27.6 原发布于 IOSDecryptHubJB，迁移后内容不变）。
 - 原域名、包 ID、源公钥保持兼容，保留 v1.27.5；索引生成必须成功签名并通过既有公钥验证。
 - 越狱 Manager 查询 APT 候选版本并打开包管理器更新完整包，不再独立覆盖引擎。
 - 常驻分析服务、Inline Hook 与 Trace 属于后续越狱项目规划。

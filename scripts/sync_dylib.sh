@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# sync_dylib.sh — 把主项目发布版 dylib 同步到官网并更新首页下载元数据
+# sync_dylib.sh — 把巨魔版发布 dylib 同步到官网并更新首页下载元数据
 #
 # 用法:
 #   ./scripts/sync_dylib.sh <path/decrypt_helper-<version>.dylib>
-#   ./scripts/sync_dylib.sh        ← 自动选择 ../IOSDecryptHub 下最新的 decrypt_helper-*.dylib
+#   ./scripts/sync_dylib.sh        ← 自动选择 ../IOSDecryptHubTrollStore 下最新的 decrypt_helper-*.dylib
 #
 # 产物: public/dylibs/<同名文件>, src/data.js 的 DYLIB_DOWNLOAD 元数据
 
@@ -25,9 +25,9 @@ error() { echo -e "${RED}[✗]${NC} $1"; exit 1; }
 
 SRC="${1:-}"
 if [ -z "$SRC" ]; then
-    SRC="$(ls -t "$PAGE_DIR"/../IOSDecryptHub/decrypt_helper-*.dylib 2>/dev/null | head -1 || true)"
+    SRC="$(ls -t "$PAGE_DIR"/../IOSDecryptHubTrollStore/decrypt_helper-*.dylib 2>/dev/null | head -1 || true)"
 fi
-[ -n "$SRC" ] || error "未指定 dylib，且 ../IOSDecryptHub/ 下没有 decrypt_helper-*.dylib"
+[ -n "$SRC" ] || error "未指定 dylib，且 ../IOSDecryptHubTrollStore/ 下没有 decrypt_helper-*.dylib"
 [ -f "$SRC" ] || error "文件不存在: $SRC"
 
 BASE="$(basename "$SRC")"
