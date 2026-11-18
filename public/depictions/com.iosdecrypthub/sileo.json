@@ -8,7 +8,7 @@
       "views": [
         {
           "class": "DepictionMarkdownView",
-          "markdown": "## IOSDecryptHub\n\n[ios.decrypthub.com](https://ios.decrypthub.com)\n\n安装后在 **设置 → IOSDecryptHub** 中选择要注入的 App。"
+          "markdown": "## IOSDecryptHub 1.28.50\n\n[ios.decrypthub.com](https://ios.decrypthub.com) · [发布说明](https://github.com/decrypthub/IOSDecryptHub/releases/tag/v1.28.50)\n\n安装后在桌面打开 **IOSDecryptHub**，选择要注入的 App。\n\n完整包提供结构化事件、调用关联、Inline / QBDI 现场跟踪、原生栈展开及有界异步观察；原生异常与跳转跟踪需显式准备。"
         },
         {
           "class": "DepictionSeparatorView"
@@ -16,7 +16,7 @@
         {
           "class": "DepictionTableTextView",
           "title": "版本",
-          "text": "1.24.8"
+          "text": "1.28.50"
         },
         {
           "class": "DepictionTableTextView",

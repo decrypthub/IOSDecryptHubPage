@@ -271,4 +271,18 @@ No-crash is the floor: untrusted memory reads go through \`vm_read_overwrite\` o
 - Events may contain keys, IVs, plaintext and tokens — handle as sensitive material.`,
     },
   },
+{
+  "slug": "v1-28-50-jailbreak",
+  "date": "2026-11-18",
+  "tag": "更新",
+  "tagEn": "Release",
+  "title": "越狱版 v1.28.50：双架构整包与原调用现场跟踪",
+  "summary": "Rootless、RootHide 整包正式发布到 GitHub 与签名 APT 源，完成双机实测；巨魔版继续独立维护。",
+  "content": "[下载与完整发布说明](https://github.com/decrypthub/IOSDecryptHub/releases/tag/v1.28.50)。在 Sileo / Zebra 添加 https://ios.decrypthub.com/，刷新源并升级 com.iosdecrypthub。请选择 Rootless 或 RootHide 对应的完整 deb，Manager、Loader、daemon、分析引擎及运行时资源一并更新。\n\n### 本次交付\n\n结构化事件、调用身份与关联、固定 ABI 校验、Inline Hook、QBDI 原调用现场跟踪、PAC 适配和原生栈展开。有界 GCD、notify、source / timer、NSOperation 关联，以及默认关闭的 Swift Task 和经现场校准的私有 dispatch callback 观察，分别报告实际看到的生命周期证据。\n\n新增显式准备的 live-native-control，在支持的固定 GPR C / C++ / ObjC ABI 下，原线程执行 native helper，并从真实返回、公开异常 landing pad 或已观测的 setjmp continuation 恢复现场跟踪。支持近距岛与专属 Mach BRK，原生系统 helper 保持 opaque。具体边界见发布说明。\n\n### 验证与版本选择\n\n两种资产使用同一已验收源码的最终构建，完成 Rootless、RootHide 真机安装、完整回归、近距与强制 Mach 自检，以及真实 App 原调用与 HTTP 请求关联验证；完整包 CI 和 ARM64 原生控制流 CI 均通过。Release 附有 SHA256SUMS。\n\n原包 ID、公钥及历史 APT 包保留。巨魔版仍为独立维护的 v1.27.6。旧单引擎更新器的 releases/latest 继续兼容；越狱版请使用本页明确的 v1.28.50 入口或 APT。网页工具示例不代表所有变体的完整工具集合，请以设备 get_capabilities 和 tools/list 为准。",
+  "en": {
+    "title": "Jailbreak v1.28.50: complete packages and live native tracing",
+    "summary": "Rootless and RootHide packages are available on GitHub and the signed APT repository after testing on both devices. TrollStore remains independent.",
+    "content": "[Downloads and full release notes](https://github.com/decrypthub/IOSDecryptHub/releases/tag/v1.28.50). Add https://ios.decrypthub.com/ in Sileo / Zebra, refresh, and upgrade com.iosdecrypthub with the package for your environment. Each complete deb includes Manager, Loader, daemon, engine, and runtime resources.\n\n### Delivered capabilities\n\nStructured events, call identity and correlation, fixed ABI validation, Inline Hook, live QBDI tracing, PAC support, and native stack unwinding. Bounded GCD, notify, source / timer, and NSOperation correlation is complemented by opt-in Swift Task and calibrated private dispatch callback observation. Missing lifecycle evidence remains unresolved.\n\nThe explicitly prepared live-native-control mode executes native helpers on the original thread and resumes tracing at actual returns, public exception landing pads, or observed setjmp continuations within supported fixed GPR C / C++ / ObjC ABIs. It supports near islands and dedicated Mach BRK recovery. Native system helpers remain opaque; see the release notes for exact limits.\n\n### Verification and editions\n\nBoth published assets are the final tested build of the same source. Rootless and RootHide passed installation, existing regressions, near / forced-Mach self-tests, and actual App call / HTTP correlation checks. Complete-package and ARM64 native-control CI passed. SHA256SUMS is attached to the Release.\n\nThe package ID, signing key, and historical APT packages are retained. TrollStore remains at v1.27.6. The legacy single-engine releases/latest endpoint is preserved; use the explicit v1.28.50 page or APT for jailbreak updates. Query device get_capabilities and tools/list for its complete tool set."
+  }
+},
 ];

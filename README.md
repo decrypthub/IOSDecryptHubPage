@@ -14,7 +14,7 @@ iOS App 运行时加解密审计平台。本站为交互式作品级站点，Vit
 ## 页面结构
 
 - **首页 `/`**：3D 主视觉（Three.js 解密核心 + 扫描环）、直接下载 DYLIB、实时面板复刻。
-- **文档 `/docs.html`**：安装与注入（TrollFools / 越狱插件源 / idh 网关）、能力全景、算法覆盖矩阵、MCP · Capstone 36 工具。
+- **文档 `/docs.html`**：安装与注入（TrollFools / 越狱插件源 / idh 网关）、能力全景、算法覆盖矩阵、MCP 基础工具示例（以设备 tools/list 为准）。
 - **动态 `/news.html`**：技术文章（markdown 渲染 + hash 路由），文章数据在 `src/news-data.js`，发布新文章时在数组末尾追加一条。
 
 ## 语言切换
@@ -106,7 +106,7 @@ https://ios.decrypthub.com/
 - 首页 dylib 来自 IOSDecryptHubTrollStore 的 trollstore 构建；越狱源完整 deb 由 IOSDecryptHub 主仓维护（v1.27.6 原发布于 IOSDecryptHubJB，迁移后内容不变）。
 - 原域名、包 ID、源公钥保持兼容，保留 v1.27.5；索引生成必须成功签名并通过既有公钥验证。
 - 越狱 Manager 查询 APT 候选版本并打开包管理器更新完整包，不再独立覆盖引擎。
-- 常驻分析服务、Inline Hook 与 Trace 属于后续越狱项目规划。
+- 此为 2026-10-26 的历史快照；当前越狱版的 Inline Hook、Trace 和关联能力见下方 1.28.50 正式发布。
 
 如需通过已登录的 Wrangler 手动部署到同一个官网 Worker：
 
@@ -118,3 +118,12 @@ npx wrangler deploy
 部署后核验 `/Packages`、`/InRelease`、两类完整 deb 和首页 dylib；不能仅凭推送成功判定源已上线。
 
 2026-10-26 上线核验：官网 v1.27.6 已部署到现有 `iosdecrypthubpage`，`ios.decrypthub.com` 的首页、dylib、rootless / RootHide deb 与发布产物逐字节一致；线上 Packages / 压缩索引 / Release 哈希正确，InRelease 和 Release.gpg 均通过既有源公钥验证。保留 v1.27.5 及原有信任公钥。
+
+## v1.28.50 越狱版正式发布（2026-11-18）
+
+- [GitHub Release](https://github.com/decrypthub/IOSDecryptHub/releases/tag/v1.28.50) 发布已通过双机实测的最终 v52 Rootless / RootHide 完整 deb 与 SHA256SUMS，源码为 `7398355ccd32c01b1b0e9d46755e34ab72099b59`。
+- 官网首页、安装文档、动态、Sileo / HTML 包详情同步 1.28.50。越狱版下载元数据集中在 `src/data.js` 的 `JAILBREAK_RELEASE`，巨魔版 `DYLIB_DOWNLOAD` 继续指向独立的 1.27.6。
+- APT 保留历史包、包 ID 和原公钥；先部署并验证新 deb，再部署签名索引。`InRelease` 和 `Release.gpg` 必须均通过 `public/key.gpg.bin` 验证。APT 文本索引及签名文件在 Git 中保留原始字节，避免自动换行破坏哈希。
+- 发布新 deb 时复制已验收的原包到 `public/debs/`，在具备原签名环境的 Mac 运行 `scripts/update_repo.sh`，核对架构、完整组件及哈希；不要以裸引擎替换整包。
+- 原仓 `releases/latest` 保留旧单引擎更新器兼容入口；官网明确链接此正式版本，越狱 Manager 按 APT 架构候选版本更新。
+- 推送后需核对既有 Worker 的部署结果；本次使用已登录 Wrangler 手动部署同一 Worker，并核验公网包、索引、签名及中英文页面。

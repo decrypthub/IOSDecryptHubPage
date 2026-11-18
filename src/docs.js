@@ -2,6 +2,7 @@ import './style.css';
 import { $, $$, el, renderChrome, initCopyButtons } from './layout.js';
 import { t, tpl, getLang, initI18n } from './i18n.js';
 import { MCP_TOOLS } from './data.js';
+import { initJailbreakDownloads } from './downloads.js';
 
 const isEn = () => getLang() === 'en';
 
@@ -83,6 +84,7 @@ function boot() {
   initToc();
   initReveal();
   initI18n();
+  initJailbreakDownloads();
   document.addEventListener('idh:langchange', () => {
     initMCP();
   });

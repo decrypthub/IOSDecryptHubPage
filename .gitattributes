@@ -1,1 +1,6 @@
 scripts/update_repo.sh text eol=lf
+# APT hashes and detached signatures refer to exact bytes.
+public/Packages -text
+public/Release -text
+public/InRelease -text
+public/key.gpg -text

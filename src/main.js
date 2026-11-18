@@ -5,6 +5,7 @@ import { initHero3D } from './scene/hero3d.js';
 import { initMockPanel } from './panel.js';
 import { initAgentTerminal } from './agent-terminal.js';
 import { DYLIB_DOWNLOAD, CAPABILITIES } from './data.js';
+import { initJailbreakDownloads } from './downloads.js';
 
 /* ---------------- nav scroll state ---------------- */
 function initNav() {
@@ -82,6 +83,7 @@ function boot() {
   initNav();
   initCopyButtons();
   initDownload();
+  initJailbreakDownloads();
   initAgentTerminal();
   initMockPanel();
   initHomeCaps();

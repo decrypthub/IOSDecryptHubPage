@@ -112,7 +112,7 @@ function renderList() {
   unmountProgress();
   root.className = 'articles';
   root.innerHTML = '';
-  NEWS_ARTICLES.forEach((a, i) => {
+  [...NEWS_ARTICLES].sort((a, b) => b.date.localeCompare(a.date)).forEach((a, i) => {
     const d = pick(a);
     const card = el('a', 'article-card' + (i === 0 ? ' article-card--latest' : ''));
     card.href = `#/${a.slug}`;

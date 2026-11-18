@@ -86,14 +86,17 @@
                 <article class="install-path">
                   <span class="install-path__index">02 · JAILBREAK</span>
                   <h3 data-i18n="docs.install.jb.h3">越狱插件源</h3>
+                  <p><strong data-jailbreak-title="release.version">当前越狱版 v1.28.50 · 完整 deb</strong></p>
                   <p data-i18n="docs.install.jb.p1">适用于 rootless / roothide 环境。两种包对应不同的设备架构，不能混装：</p>
-                  <p><a href="https://github.com/decrypthub/IOSDecryptHub" target="_blank" rel="noopener noreferrer" data-i18n="repo.jailbreak">越狱版源码</a> · <a href="https://github.com/decrypthub/IOSDecryptHub/releases" target="_blank" rel="noopener noreferrer" data-i18n="repo.jailbreak.releases">越狱版下载</a></p>
+                  <p><a href="https://github.com/decrypthub/IOSDecryptHub" target="_blank" rel="noopener noreferrer" data-i18n="repo.jailbreak">越狱版源码</a> · <a data-jailbreak-release href="https://github.com/decrypthub/IOSDecryptHub/releases/tag/v1.28.50" target="_blank" rel="noopener noreferrer" data-i18n="release.notes">发布说明</a></p>
                   <ol class="prose-list">
                     <li data-i18n="docs.install.jb.s1">在 Sileo、Zebra 等包管理器中添加插件源。</li>
                     <li data-i18n="docs.install.jb.s2">安装 <code>com.iosdecrypthub</code>，选择与设备环境匹配的包。</li>
-                    <li data-i18n="docs.install.jb.s3">在“设置 → IOSDecryptHub”中选择目标 App。</li>
+                    <li data-i18n="docs.install.jb.s3">在桌面打开 IOSDecryptHub，选择要注入的目标 App。</li>
                     <li data-i18n="docs.install.jb.s4">重启目标 App，并使用设备端显示的地址连接。</li>
                   </ol>
+                  <p class="release-downloads"><a data-jailbreak-download="rootless" href="/debs/com.iosdecrypthub_1.28.50_rootless.deb" download>Rootless deb</a>
+                  <a data-jailbreak-download="roothide" href="/debs/com.iosdecrypthub_1.28.50_roothide.deb" download>RootHide deb</a></p>
                   <code class="install-path__repo">https://ios.decrypthub.com/</code>
                 </article>
               </div>
@@ -138,7 +141,7 @@ idh mcp</pre>
 
             <section id="mcp">
               <h2 data-i18n="docs.mcp.h2">MCP 工具</h2>
-              <p data-i18n="docs.mcp.lead">设备端 MCP 复用 HTTP 服务端口 <code>POST /api/mcp</code>，当前公开版本提供 44 个工具，覆盖反汇编、镜像与符号、运行时事件、沙盒文件、脱壳、动态观察和配置。</p>
+              <p data-i18n="docs.mcp.lead">设备端 MCP 复用 HTTP 服务端口 POST /api/mcp。下列为基础工具示例；巨魔版与越狱版的工具集合不同，当前设备的完整能力以 get_capabilities 和 tools/list 为准。</p>
               <div class="docs__callout" data-i18n="docs.mcp.note">先调用 get_capabilities 和 tools/list 获取当前构建的真实能力。工具可能受变体、目标镜像和设备环境影响，网页示例不是运行时结果。</div>
               <div class="mcp">
                 <ul class="mcp__list" id="mcp-list" role="tablist" aria-label="MCP 工具"></ul>

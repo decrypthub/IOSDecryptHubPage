@@ -17,6 +17,21 @@ export const DYLIB_DOWNLOAD = {
   sha256: '934bed7ac5515d5bec5902725f156dd1e228f954e9a9c43b135c984b1ec64578',
 };
 
+export const JAILBREAK_RELEASE = {
+  version: '1.28.50',
+  url: 'https://github.com/decrypthub/IOSDecryptHub/releases/tag/v1.28.50',
+  packages: {
+    rootless: {
+      filename: 'com.iosdecrypthub_1.28.50_rootless.deb',
+      sha256: 'b9c3a500f2940614fc219212a9a54236caef66a99940edf1e4e4ca9f184c536a',
+    },
+    roothide: {
+      filename: 'com.iosdecrypthub_1.28.50_roothide.deb',
+      sha256: '0a69b0ff3f72d191ce3661aafc5f472d86c116b23916724616a52fc3a285cbc5',
+    },
+  },
+};
+
 export const CAPABILITIES = [
   {
     icon: ICON.crypto, title: '加解密审计',
