@@ -112,3 +112,41 @@ Depiction: https://ios.decrypthub.com/depictions/com.iosdecrypthub/index.html
 SileoDepiction: https://ios.decrypthub.com/depictions/com.iosdecrypthub/sileo.json
 Icon: https://ios.decrypthub.com/depictions/com.iosdecrypthub/icon.png
 
+Package: com.iosdecrypthub
+Name: IOSDecryptHub
+Version: 1.28.52
+Architecture: iphoneos-arm64e
+Description: iOS 运行时安全分析工具 — 注入目标 App 后实时查看加解密明文、密钥、文件与网络行为（WebUI + MCP）
+Maintainer: IOSDecryptHub
+Author: IOSDecryptHub
+Section: Tweaks
+Depends: ellekit
+Conflicts: com.iosdecrypthub.trollstore
+Filename: debs/com.iosdecrypthub_1.28.52_roothide.deb
+Size: 4130756
+MD5sum: ac9c21b015020594e1c34774d61505a9
+SHA1: 3a120577d2df38a922b57f2a44153a5f1a39f902
+SHA256: ed98d5fc6589339389598a10bee737b41f12f866d06fd6c449c15ae1741412dd
+Depiction: https://ios.decrypthub.com/depictions/com.iosdecrypthub/index.html
+SileoDepiction: https://ios.decrypthub.com/depictions/com.iosdecrypthub/sileo.json
+Icon: https://ios.decrypthub.com/depictions/com.iosdecrypthub/icon.png
+
+Package: com.iosdecrypthub
+Name: IOSDecryptHub
+Version: 1.28.52
+Architecture: iphoneos-arm64
+Description: iOS 运行时安全分析工具 — 注入目标 App 后实时查看加解密明文、密钥、文件与网络行为（WebUI + MCP）
+Maintainer: IOSDecryptHub
+Author: IOSDecryptHub
+Section: Tweaks
+Depends: ellekit
+Conflicts: com.iosdecrypthub.trollstore
+Filename: debs/com.iosdecrypthub_1.28.52_rootless.deb
+Size: 2090400
+MD5sum: 1d591d927dd37e294af8b11030f51469
+SHA1: 3c25501eaef443804a6d1e04b1c3dad29bed4729
+SHA256: a833936a5f46c40a563b0ba8cf7d667466cc73f3164425b144a79321173cea4c
+Depiction: https://ios.decrypthub.com/depictions/com.iosdecrypthub/index.html
+SileoDepiction: https://ios.decrypthub.com/depictions/com.iosdecrypthub/sileo.json
+Icon: https://ios.decrypthub.com/depictions/com.iosdecrypthub/icon.png
+

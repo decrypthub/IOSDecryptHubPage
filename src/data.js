@@ -18,16 +18,16 @@ export const DYLIB_DOWNLOAD = {
 };
 
 export const JAILBREAK_RELEASE = {
-  version: '1.28.50',
-  url: 'https://github.com/decrypthub/IOSDecryptHub/releases/tag/v1.28.50',
+  version: '1.28.52',
+  url: 'https://github.com/decrypthub/IOSDecryptHub/releases/tag/v1.28.52',
   packages: {
     rootless: {
-      filename: 'com.iosdecrypthub_1.28.50_rootless.deb',
-      sha256: 'b9c3a500f2940614fc219212a9a54236caef66a99940edf1e4e4ca9f184c536a',
+      filename: 'com.iosdecrypthub_1.28.52_rootless.deb',
+      sha256: 'a833936a5f46c40a563b0ba8cf7d667466cc73f3164425b144a79321173cea4c',
     },
     roothide: {
-      filename: 'com.iosdecrypthub_1.28.50_roothide.deb',
-      sha256: '0a69b0ff3f72d191ce3661aafc5f472d86c116b23916724616a52fc3a285cbc5',
+      filename: 'com.iosdecrypthub_1.28.52_roothide.deb',
+      sha256: 'ed98d5fc6589339389598a10bee737b41f12f866d06fd6c449c15ae1741412dd',
     },
   },
 };

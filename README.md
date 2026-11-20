@@ -127,3 +127,8 @@ npx wrangler deploy
 - 发布新 deb 时复制已验收的原包到 `public/debs/`，在具备原签名环境的 Mac 运行 `scripts/update_repo.sh`，核对架构、完整组件及哈希；不要以裸引擎替换整包。
 - 原仓 `releases/latest` 保留旧单引擎更新器兼容入口；官网明确链接此正式版本，越狱 Manager 按 APT 架构候选版本更新。
 - 推送后需核对既有 Worker 的部署结果；本次使用已登录 Wrangler 手动部署同一 Worker，并核验公网包、索引、签名及中英文页面。
+
+## v1.28.52 越狱版正式发布（2026-11-20）
+
+- Rootless 和 RootHide 使用现有签名 APT 源与双机验收的完整 deb。
+- Manager 保存设备会话摘要，支持结束确认与退出后读取。使用 idh-cli 0.8.0 可读取已授权会话。[GitHub Release](https://github.com/decrypthub/IOSDecryptHub/releases/tag/v1.28.52)

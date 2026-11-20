@@ -285,4 +285,18 @@ No-crash is the floor: untrusted memory reads go through \`vm_read_overwrite\` o
     "content": "[Downloads and full release notes](https://github.com/decrypthub/IOSDecryptHub/releases/tag/v1.28.50). Add https://ios.decrypthub.com/ in Sileo / Zebra, refresh, and upgrade com.iosdecrypthub with the package for your environment. Each complete deb includes Manager, Loader, daemon, engine, and runtime resources.\n\n### Delivered capabilities\n\nStructured events, call identity and correlation, fixed ABI validation, Inline Hook, live QBDI tracing, PAC support, and native stack unwinding. Bounded GCD, notify, source / timer, and NSOperation correlation is complemented by opt-in Swift Task and calibrated private dispatch callback observation. Missing lifecycle evidence remains unresolved.\n\nThe explicitly prepared live-native-control mode executes native helpers on the original thread and resumes tracing at actual returns, public exception landing pads, or observed setjmp continuations within supported fixed GPR C / C++ / ObjC ABIs. It supports near islands and dedicated Mach BRK recovery. Native system helpers remain opaque; see the release notes for exact limits.\n\n### Verification and editions\n\nBoth published assets are the final tested build of the same source. Rootless and RootHide passed installation, existing regressions, near / forced-Mach self-tests, and actual App call / HTTP correlation checks. Complete-package and ARM64 native-control CI passed. SHA256SUMS is attached to the Release.\n\nThe package ID, signing key, and historical APT packages are retained. TrollStore remains at v1.27.6. The legacy single-engine releases/latest endpoint is preserved; use the explicit v1.28.50 page or APT for jailbreak updates. Query device get_capabilities and tools/list for its complete tool set."
   }
 },
+{
+  "slug": "v1-28-52-jailbreak",
+  "date": "2026-11-20",
+  "tag": "更新",
+  "tagEn": "Release",
+  "title": "越狱版 v1.28.52：设备会话与摘要保存",
+  "summary": "Rootless、RootHide 整包支持设备端保存会话摘要，并在主动结束后确认尾部。",
+  "content": "[完整发布说明](https://github.com/decrypthub/IOSDecryptHub/releases/tag/v1.28.52)。在 Sileo 或 Zebra 刷新 IOSDecryptHub 源后，选择 Rootless 或 RootHide 对应的完整包。\n\n在 Manager 的应用菜单打开「会话」。启用后，手机保存有界摘要，目标退出后仍可查看。通过已配对的本机转发与只读凭证，idh-cli 0.8.0 也可读取已保存的会话。\n\n两种越狱环境均用仓内测试宿主核对了直接退出与主动结束。四组退出前后记录一致，序号连续。主动结束的两组确认最终序号，直接退出的两组显示尾部未确认。",
+  "en": {
+    "title": "Jailbreak v1.28.52: on-device session history",
+    "summary": "Rootless and RootHide packages retain session summaries and confirm the final sequence when a session is closed from Manager.",
+    "content": "[Full release notes](https://github.com/decrypthub/IOSDecryptHub/releases/tag/v1.28.52). Refresh the IOSDecryptHub repository in Sileo or Zebra and use the complete package for Rootless or RootHide.\n\nOpen Sessions from an app's menu in Manager. When enabled, the device keeps a bounded set of summaries that remain available after the app exits. idh-cli 0.8.0 can read saved sessions with a paired local forward and a read-only credential.\n\nAn owned test app exercised forced exit and orderly close on both jailbreak variants. All four cases retained identical, contiguous records after exit. Orderly close confirmed the final sequence. Forced exit left the final sequence unconfirmed."
+  }
+},
 ];
